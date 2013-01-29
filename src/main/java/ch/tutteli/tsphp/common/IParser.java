@@ -16,8 +16,9 @@
  */
 package ch.tutteli.tsphp.common;
 
+import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collection;
+import java.util.List;
 import org.antlr.runtime.tree.Tree;
 
 /**
@@ -28,24 +29,88 @@ public interface IParser
 {
 
     /**
-     * Parse the inputStream and return the corresponding Tree (an abstract syntax tree).
+     * Parse the inputString and return the corresponding abstract syntax tree (AST).
      *
-     * @param inputStream
+     * @return An abstract syntax tree (AST)
+     * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html
      */
-    Tree parse(InputStream inputStream);
+    Tree parse(String inputString);
+
+    /**
+     * Parse the data and return the corresponding abstract syntax tree (AST).
+     *
+     * @return An abstract syntax tree (AST)
+     * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html
+     */
+    Tree parse(char[] data, int numberOfActualCharsInArray);
+
+    /**
+     * Parse the inputStream and return the corresponding abstract syntax tree (AST).
+     *
+     * @return An abstract syntax tree (AST)
+     * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
+     */
+    Tree parseInputStream(InputStream inputStream) throws IOException;
+
+    /**
+     * Parse the inputStream and return the corresponding abstract syntax tree (AST).
+     *
+     * @return An abstract syntax tree (AST)
+     * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
+     */
+    Tree parseInputStream(InputStream input, int size) throws IOException;
+
+    /**
+     * Parse the inputStream and return the corresponding abstract syntax tree (AST).
+     *
+     * @return An abstract syntax tree (AST)
+     * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
+     */
+    Tree parseInputStream(InputStream input, String encoding) throws IOException;
+
+    /**
+     * Parse the inputStream and return the corresponding abstract syntax tree (AST).
+     *
+     * @return An abstract syntax tree (AST)
+     * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
+     */
+    Tree parseInputStream(InputStream input, int size, String encoding) throws IOException;
+
+    /**
+     * Parse the inputStream and return the corresponding abstract syntax tree (AST).
+     *
+     * @return An abstract syntax tree (AST)
+     * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
+     */
+    Tree parseInputStream(InputStream input, int size, int readBufferSize, String encoding) throws IOException;
+
+    /**
+     * Parse the file and return the corresponding abstract syntax tree (AST).
+     *
+     * @return An abstract syntax tree (AST)
+     * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html
+     */
+    Tree parseFile(String filename) throws IOException;
+
+    /**
+     * Parse the file and return the corresponding abstract syntax tree (AST).
+     *
+     * @return An abstract syntax tree (AST)
+     * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html
+     */
+    Tree parseFile(String fileName, String encoding) throws IOException;
 
     /**
      * Indicate whether one or more syntax errors have been found during the check.
-     *
      *
      * @return True if errors have been found otherwise false.
      */
     boolean hasFoundError();
 
     /**
-     * Return the found syntax errors as a list of exceptions
+     * Return the found syntax errors as a list of exceptions.
      *
      * @return The found syntax errors
      */
-    Collection<Exception> getExceptions();
+    List<Exception> getExceptions();
 }
