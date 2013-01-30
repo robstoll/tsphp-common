@@ -25,7 +25,7 @@ import org.antlr.runtime.tree.Tree;
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public interface IParser
+public interface IParser extends IErrorReporter
 {
 
     /**
@@ -50,7 +50,7 @@ public interface IParser
      * @return An abstract syntax tree (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
      */
-    Tree parseInputStream(InputStream inputStream) throws IOException;
+    Tree parseInputStream(InputStream input) throws IOException;
 
     /**
      * Parse the inputStream and return the corresponding abstract syntax tree (AST).
@@ -105,6 +105,7 @@ public interface IParser
      *
      * @return True if errors have been found otherwise false.
      */
+    @Override
     boolean hasFoundError();
 
     /**
@@ -112,5 +113,6 @@ public interface IParser
      *
      * @return The found syntax errors
      */
+    @Override
     List<Exception> getExceptions();
 }
