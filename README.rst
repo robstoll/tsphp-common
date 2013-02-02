@@ -1,4 +1,4 @@
-TSPHP Grammar
+TSPHP-common
 =====
 | This repository contains the interfaces used to integrate the different TSPHP components as well as common classes.
 | Please visit the `project's homepage <http://tsphp.tutteli.ch/>`_ for more information.
