@@ -22,7 +22,7 @@ package ch.tutteli.tsphp.common;
  *
  * Adopted from the book Language Implementation Patterns by Terence Parr
  */
-public class Symbol
+public abstract class ASymbol
 {
 
     public String name;
@@ -30,12 +30,12 @@ public class Symbol
     public IScope scope;
     public TSPHPAst definitionAst;
 
-    public Symbol(String theName) {
+    public ASymbol(String theName) {
         name = theName;
     }
 
-    public Symbol(String name, IType theType) {
-        this(name);
+    public ASymbol(String theName, IType theType) {
+        name = theName;
         type = theType;
     }
 
@@ -45,16 +45,9 @@ public class Symbol
 
     @Override
     public String toString() {
-        String string = "";
-        if (scope != null) {
-            string = scope.getScopeName() + ".";
-        }
-        if (type != null) {
-            string = '<' + string + getName() + ":" + type + '>';
-        } else {
-            string += getName();
-        }
-        return string;
+        return (scope != null ? scope.getScopeName() + "." : "")
+                + getName()
+                + (type != null ? ":" + type : "");
     }
 
     public static String stripBrackets(String s) {

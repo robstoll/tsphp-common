@@ -40,10 +40,10 @@ public interface IScope
     /**
      * Define a symbol in the current scope
      */
-    public void define(Symbol sym);
+    public void define(ASymbol sym);
 
     /**
      * Look up name in this scope or in parent scope if not here
      */
-    public Symbol resolve(String name);
+    public ASymbol resolve(String name);
 }
