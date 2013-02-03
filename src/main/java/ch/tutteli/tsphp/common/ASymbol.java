@@ -22,25 +22,52 @@ package ch.tutteli.tsphp.common;
  *
  * Adopted from the book Language Implementation Patterns by Terence Parr
  */
-public abstract class ASymbol
+public abstract class ASymbol implements ISymbol
 {
 
-    public String name;
-    public IType type;
-    public IScope scope;
-    public TSPHPAst definitionAst;
+    protected String name;
+    protected IType type;
+    protected IScope scope;
+    protected TSPHPAst definitionAst;
 
-    public ASymbol(String theName) {
+    public ASymbol(String theName, TSPHPAst theDefinitionAst) {
         name = theName;
+        definitionAst = theDefinitionAst;
     }
 
-    public ASymbol(String theName, IType theType) {
-        name = theName;
+    public ASymbol(String name, TSPHPAst definitionAst, IType theType) {
+        this(name, definitionAst);
         type = theType;
     }
 
+    @Override
+    public TSPHPAst getDefinitionAst() {
+        return definitionAst;
+    }
+
+    @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public IScope getScope() {
+        return scope;
+    }
+
+    @Override
+    public void setScope(IScope newScope) {
+        scope = newScope;
+    }
+
+    @Override
+    public IType getType() {
+        return type;
+    }
+
+    @Override
+    public void setType(IType newType) {
+        type = newType;
     }
 
     @Override

@@ -16,6 +16,8 @@
  */
 package ch.tutteli.tsphp.common;
 
+import java.util.Map;
+
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
@@ -25,25 +27,34 @@ package ch.tutteli.tsphp.common;
 public interface IScope
 {
 
-    public String getScopeName();
+    String getScopeName();
 
     /**
-     * Where to look next for symbols; superclass or enclosing scope
+     * Return the parent scope or null if no parent scope was defined.
+     *
+     * The parent scope is not necessarily the enclosing scope. For instance, classes can have a parent class.
      */
-    public IScope getParentScope();
+    IScope getParentScope();
 
     /**
-     * Scope in which this scope is defined. Returns null for global scope.
+     * Return the scope in which this scope is defined.
+     *
+     * Returns null for global scope.
      */
-    public IScope getEnclosingScope();
+    IScope getEnclosingScope();
 
     /**
      * Define a symbol in the current scope
      */
-    public void define(ASymbol sym);
+    void define(ISymbol sym);
 
     /**
-     * Look up name in this scope or in parent scope if not here
+     * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
      */
-    public ASymbol resolve(String name);
+    ISymbol resolve(String name);
+
+    /**
+     * Return the symbols which have been defined in this scope
+     */
+    Map<String, ISymbol> getSymbols();
 }
