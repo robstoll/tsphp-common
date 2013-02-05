@@ -13,35 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * 
  */
 package ch.tutteli.tsphp.common;
-
-import org.antlr.runtime.Token;
-import org.antlr.runtime.tree.CommonTree;
 
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
- *
- * Adopted from the book Language Implementation Patterns by Terence Parr
  */
-public class TSPHPAst extends CommonTree
+public interface IAstHelper
 {
-
-    public IScope scope;
-    public ASymbol symbol;
-
-    public TSPHPAst() {
-    }
-
-    public TSPHPAst(TSPHPAst ast) {
-        super(ast);
-        scope = ast.scope;
-        symbol = ast.symbol;
-    }
-
-    public TSPHPAst(Token t) {
-        super(t);
-    }
+     TSPHPAst copyAst(TSPHPAst original);
 }

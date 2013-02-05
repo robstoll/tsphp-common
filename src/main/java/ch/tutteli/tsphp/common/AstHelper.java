@@ -13,35 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * 
  */
 package ch.tutteli.tsphp.common;
-
-import org.antlr.runtime.Token;
-import org.antlr.runtime.tree.CommonTree;
 
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
- *
- * Adopted from the book Language Implementation Patterns by Terence Parr
  */
-public class TSPHPAst extends CommonTree
+public class AstHelper implements IAstHelper
 {
 
-    public IScope scope;
-    public ASymbol symbol;
+    /**
+     * Copied from http://stackoverflow.com/questions/6781019/antlr-duplicate-a-tree
+     */
+    @Override
+    public TSPHPAst copyAst(TSPHPAst original) {
 
-    public TSPHPAst() {
-    }
+        TSPHPAst copy = new TSPHPAst(original); // Leverage constructor
 
-    public TSPHPAst(TSPHPAst ast) {
-        super(ast);
-        scope = ast.scope;
-        symbol = ast.symbol;
-    }
-
-    public TSPHPAst(Token t) {
-        super(t);
+        if (original.getChildren() != null) {
+            for (Object o : original.getChildren()) {
+                TSPHPAst childCopy = copyAst((TSPHPAst) o);
+                childCopy.setParent(copy);
+                copy.addChild(childCopy);
+            }
+        };
+        return copy;
     }
 }
