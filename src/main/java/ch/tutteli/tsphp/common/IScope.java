@@ -27,6 +27,8 @@ import java.util.Map;
 public interface IScope
 {
 
+    public static final String DEFAULT_NAMESPACE = "default";
+
     String getScopeName();
 
     /**

@@ -32,12 +32,12 @@ public class AstHelper implements IAstHelper
         TSPHPAst copy = new TSPHPAst(original); // Leverage constructor
 
         if (original.getChildren() != null) {
-            for (Object o : original.getChildren()) {
-                TSPHPAst childCopy = copyAst((TSPHPAst) o);
+            for (Object child : original.getChildren()) {
+                TSPHPAst childCopy = copyAst((TSPHPAst) child);
                 childCopy.setParent(copy);
                 copy.addChild(childCopy);
             }
-        };
+        }
         return copy;
     }
 }

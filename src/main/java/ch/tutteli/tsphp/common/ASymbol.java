@@ -35,11 +35,6 @@ public abstract class ASymbol implements ISymbol
         definitionAst = theDefinitionAst;
     }
 
-    public ASymbol(String name, TSPHPAst definitionAst, IType theType) {
-        this(name, definitionAst);
-        type = theType;
-    }
-
     @Override
     public TSPHPAst getDefinitionAst() {
         return definitionAst;
@@ -72,9 +67,20 @@ public abstract class ASymbol implements ISymbol
 
     @Override
     public String toString() {
-        return (scope != null ? scope.getScopeName() + "." : "")
+        return getEnclosingScopeNames()
                 + getName()
                 + (type != null ? ":" + type : "");
+    }
+
+    private String getEnclosingScopeNames() {
+        StringBuilder stringBuilder = new StringBuilder();
+        IScope tmpScope = scope;
+        while (tmpScope != null) {
+            stringBuilder.insert(0, ".");
+            stringBuilder.insert(0, tmpScope.getScopeName());
+            tmpScope = tmpScope.getEnclosingScope();
+        }
+        return stringBuilder.toString();
     }
 
     public static String stripBrackets(String s) {

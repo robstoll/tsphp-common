@@ -30,7 +30,7 @@ public class TSPHPAst extends CommonTree
 {
 
     public IScope scope;
-    public ASymbol symbol;
+    public ISymbol symbol;
 
     public TSPHPAst() {
     }
