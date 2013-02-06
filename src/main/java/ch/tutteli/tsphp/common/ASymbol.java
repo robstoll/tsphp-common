@@ -30,7 +30,7 @@ public abstract class ASymbol implements ISymbol
     protected IScope scope;
     protected TSPHPAst definitionAst;
 
-    public ASymbol(String theName, TSPHPAst theDefinitionAst) {
+    public ASymbol(TSPHPAst theDefinitionAst, String theName) {
         name = theName;
         definitionAst = theDefinitionAst;
     }
