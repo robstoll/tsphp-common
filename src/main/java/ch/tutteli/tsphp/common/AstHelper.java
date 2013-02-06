@@ -16,6 +16,10 @@
  */
 package ch.tutteli.tsphp.common;
 
+import java.util.List;
+import org.antlr.runtime.tree.RewriteRuleSubtreeStream;
+import org.antlr.runtime.tree.TreeAdaptor;
+
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
@@ -39,5 +43,15 @@ public class AstHelper implements IAstHelper
             }
         }
         return copy;
+    }
+
+    @Override
+    public void addChildrenFromTo(TSPHPAst source, TSPHPAst target, TreeAdaptor adaptor) {
+        if (source != null) {
+            RewriteRuleSubtreeStream stream_mod = new RewriteRuleSubtreeStream(adaptor, "classMemberModifiers", source);
+            while (stream_mod.hasNext()) {
+                adaptor.addChild(target, stream_mod.nextTree());
+            }
+        }
     }
 }

@@ -67,20 +67,26 @@ public abstract class ASymbol implements ISymbol
 
     @Override
     public String toString() {
-        return getEnclosingScopeNames()
+        return getEnclosingScopeNames(scope)
                 + getName()
                 + (type != null ? ":" + type : "");
     }
 
-    private String getEnclosingScopeNames() {
+    private String getEnclosingScopeNames(IScope scope) {
         StringBuilder stringBuilder = new StringBuilder();
-        IScope tmpScope = scope;
-        while (tmpScope != null) {
-            stringBuilder.insert(0, ".");
-            stringBuilder.insert(0, tmpScope.getScopeName());
-            tmpScope = tmpScope.getEnclosingScope();
+        while (scope != null) {
+            if (isNotDefaultNamespace(scope)) {
+                stringBuilder.insert(0, ".");
+                stringBuilder.insert(0, scope.getScopeName());
+
+            }
+            scope = scope.getEnclosingScope();
         }
         return stringBuilder.toString();
+    }
+    
+    private boolean isNotDefaultNamespace(IScope scope) {
+        return !scope.getScopeName().equals(IScope.DEFAULT_NAMESPACE);
     }
 
     public static String stripBrackets(String s) {
