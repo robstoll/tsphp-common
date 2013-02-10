@@ -32,14 +32,17 @@ public class AstHelper implements IAstHelper
      */
     @Override
     public TSPHPAst copyAst(TSPHPAst original) {
+        TSPHPAst copy = null;
+        //original can be null if backtrack is active
+        if (original != null) {
+            copy = new TSPHPAst(original); // Leverage constructor
 
-        TSPHPAst copy = new TSPHPAst(original); // Leverage constructor
-
-        if (original.getChildren() != null) {
-            for (Object child : original.getChildren()) {
-                TSPHPAst childCopy = copyAst((TSPHPAst) child);
-                childCopy.setParent(copy);
-                copy.addChild(childCopy);
+            if (original.getChildren() != null) {
+                for (Object child : original.getChildren()) {
+                    TSPHPAst childCopy = copyAst((TSPHPAst) child);
+                    childCopy.setParent(copy);
+                    copy.addChild(childCopy);
+                }
             }
         }
         return copy;

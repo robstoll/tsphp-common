@@ -16,6 +16,9 @@
  */
 package ch.tutteli.tsphp.common;
 
+import ch.tutteli.tsphp.common.exceptions.DefinitionException;
+import ch.tutteli.tsphp.common.exceptions.ReferenceException;
+import ch.tutteli.tsphp.common.exceptions.TypeCheckerException;
 import java.util.Map;
 
 /**
@@ -53,7 +56,7 @@ public interface IScope
     /**
      * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
      */
-    ISymbol resolve(String name);
+    ISymbol resolve(String name) throws TypeCheckerException;
 
     /**
      * Return the symbols which have been defined in this scope

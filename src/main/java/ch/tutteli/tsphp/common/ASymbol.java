@@ -88,8 +88,4 @@ public abstract class ASymbol implements ISymbol
     private boolean isNotDefaultNamespace(IScope scope) {
         return !scope.getScopeName().equals(IScope.DEFAULT_NAMESPACE);
     }
-
-    public static String stripBrackets(String s) {
-        return s.substring(1, s.length() - 1);
-    }
 }
