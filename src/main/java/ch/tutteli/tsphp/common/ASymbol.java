@@ -27,7 +27,7 @@ public abstract class ASymbol implements ISymbol
 
     protected String name;
     protected IType type;
-    protected IScope scope;
+    protected IScope definitionScope;
     protected TSPHPAst definitionAst;
 
     public ASymbol(TSPHPAst theDefinitionAst, String theName) {
@@ -46,13 +46,13 @@ public abstract class ASymbol implements ISymbol
     }
 
     @Override
-    public IScope getScope() {
-        return scope;
+    public IScope getDefinitionScope() {
+        return definitionScope;
     }
 
     @Override
-    public void setScope(IScope newScope) {
-        scope = newScope;
+    public void setDefinitionScope(IScope newScope) {
+        definitionScope = newScope;
     }
 
     @Override
@@ -67,25 +67,6 @@ public abstract class ASymbol implements ISymbol
 
     @Override
     public String toString() {
-        return getEnclosingScopeNames(scope)
-                + getName()
-                + (type != null ? ":" + type : "");
-    }
-
-    private String getEnclosingScopeNames(IScope scope) {
-        StringBuilder stringBuilder = new StringBuilder();
-        while (scope != null) {
-            if (isNotDefaultNamespace(scope)) {
-                stringBuilder.insert(0, ".");
-                stringBuilder.insert(0, scope.getScopeName());
-
-            }
-            scope = scope.getEnclosingScope();
-        }
-        return stringBuilder.toString();
-    }
-    
-    private boolean isNotDefaultNamespace(IScope scope) {
-        return !scope.getScopeName().equals(IScope.DEFAULT_NAMESPACE);
-    }
+        return getName() + (type != null ? ":" + type : "");
+    }    
 }

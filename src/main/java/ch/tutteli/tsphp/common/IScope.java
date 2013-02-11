@@ -16,8 +16,6 @@
  */
 package ch.tutteli.tsphp.common;
 
-import ch.tutteli.tsphp.common.exceptions.DefinitionException;
-import ch.tutteli.tsphp.common.exceptions.ReferenceException;
 import ch.tutteli.tsphp.common.exceptions.TypeCheckerException;
 import java.util.Map;
 

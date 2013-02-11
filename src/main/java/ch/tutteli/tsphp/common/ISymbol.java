@@ -27,9 +27,9 @@ public interface ISymbol
 
     String getName();
 
-    IScope getScope();
+    IScope getDefinitionScope();
 
-    void setScope(IScope newScope);
+    void setDefinitionScope(IScope definitionScope);
 
     IType getType();
 
