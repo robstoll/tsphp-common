@@ -23,7 +23,7 @@ package ch.tutteli.tsphp.common;
 public class TSPHPAstAdaptorRegistry
 {
 
-    private static ITSPHPAstAdaptor treeAdopter = new TSPHPAstAdaptor();
+    private static ITSPHPAstAdaptor treeAdopter;
 
     public static void set(ITSPHPAstAdaptor newTreeAdaptor) {
         treeAdopter = newTreeAdaptor;

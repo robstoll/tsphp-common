@@ -26,7 +26,7 @@ public abstract class ASymbol implements ISymbol
 {
 
     protected String name;
-    protected IType type;
+    protected ITypeSymbol type;
     protected IScope definitionScope;
     protected TSPHPAst definitionAst;
 
@@ -56,12 +56,12 @@ public abstract class ASymbol implements ISymbol
     }
 
     @Override
-    public IType getType() {
+    public ITypeSymbol getType() {
         return type;
     }
 
     @Override
-    public void setType(IType newType) {
+    public void setType(ITypeSymbol newType) {
         type = newType;
     }
 

@@ -20,10 +20,8 @@ package ch.tutteli.tsphp.common;
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  *
- * Adopted from the book Language Implementation Patterns by Terence Parr
  */
-public interface IType
+public interface ITypeSymbol extends ISymbol
 {
 
-    public String getName();
 }

@@ -31,7 +31,7 @@ public interface ISymbol
 
     void setDefinitionScope(IScope definitionScope);
 
-    IType getType();
+    ITypeSymbol getType();
 
-    void setType(IType newType);
+    void setType(ITypeSymbol newType);
 }

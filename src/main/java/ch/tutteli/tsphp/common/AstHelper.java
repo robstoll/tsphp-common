@@ -16,7 +16,6 @@
  */
 package ch.tutteli.tsphp.common;
 
-import java.util.List;
 import org.antlr.runtime.tree.RewriteRuleSubtreeStream;
 import org.antlr.runtime.tree.TreeAdaptor;
 

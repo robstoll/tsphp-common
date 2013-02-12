@@ -17,6 +17,7 @@
 package ch.tutteli.tsphp.common;
 
 import ch.tutteli.tsphp.common.exceptions.TypeCheckerException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,8 +28,6 @@ import java.util.Map;
  */
 public interface IScope
 {
-
-    public static final String DEFAULT_NAMESPACE = "default";
 
     String getScopeName();
 
@@ -51,13 +50,20 @@ public interface IScope
      */
     void define(ISymbol sym);
 
+    void definitionCheck(ISymbol sym);
+
     /**
      * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
      */
-    ISymbol resolve(String name) throws TypeCheckerException;
+    ISymbol resolve(String name);
+
+    /**
+     * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
+     */
+    ITypeSymbol resolveType(TSPHPAst typeAst);
 
     /**
      * Return the symbols which have been defined in this scope
      */
-    Map<String, ISymbol> getSymbols();
+    Map<String, List<ISymbol>> getSymbols();
 }

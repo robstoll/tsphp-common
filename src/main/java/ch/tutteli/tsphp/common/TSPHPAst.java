@@ -17,7 +17,7 @@
  */
 package ch.tutteli.tsphp.common;
 
-import org.antlr.runtime.Token;
+import org.antlr.runtime.*;
 import org.antlr.runtime.tree.CommonTree;
 
 /**
@@ -43,5 +43,11 @@ public class TSPHPAst extends CommonTree
 
     public TSPHPAst(Token t) {
         super(t);
+    }
+
+    public Object errorNode(TokenStream input, Token start, Token stop,
+            RecognitionException e) {
+        TSPHPErrorNode errorNode = new TSPHPErrorNode(input, start, stop, e);
+        return errorNode;
     }
 }

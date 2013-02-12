@@ -36,4 +36,24 @@ public class TSPHPErrorNode extends TSPHPAst
         super(start);
         errorNode = new CommonErrorNode(input, start, stop, e);
     }
+
+    @Override
+    public boolean isNil() {
+        return errorNode.isNil();
+    }
+
+    @Override
+    public int getType() {
+        return errorNode.getType();
+    }
+
+    @Override
+    public String getText() {
+        return errorNode.getText();
+    }
+
+    @Override
+    public String toString() {
+        return errorNode.toString();
+    }
 }
