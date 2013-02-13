@@ -16,7 +16,7 @@
  */
 package ch.tutteli.tsphp.common.exceptions;
 
-import ch.tutteli.tsphp.common.TSPHPAst;
+import ch.tutteli.tsphp.common.ITSPHPAst;
 
 /**
  *
@@ -25,20 +25,20 @@ import ch.tutteli.tsphp.common.TSPHPAst;
 public class DefinitionException extends TypeCheckerException
 {
 
-    private TSPHPAst existingDefinition;
-    private TSPHPAst newDefinition;
+    private ITSPHPAst existingDefinition;
+    private ITSPHPAst newDefinition;
 
-    public DefinitionException(String message, TSPHPAst theExistingDefinition, TSPHPAst theNewDefinition) {
+    public DefinitionException(String message, ITSPHPAst theExistingDefinition, ITSPHPAst theNewDefinition) {
         super(message);
         existingDefinition = theExistingDefinition;
         newDefinition = theNewDefinition;
     }
 
-    public TSPHPAst getExistingDefinition() {
+    public ITSPHPAst getExistingDefinition() {
         return existingDefinition;
     }
 
-    public TSPHPAst getNewDefinition() {
+    public ITSPHPAst getNewDefinition() {
         return newDefinition;
     }
 }

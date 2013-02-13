@@ -31,12 +31,12 @@ public class TSPHPAstAdaptor extends CommonTreeAdaptor implements ITSPHPAstAdapt
 {
 
     @Override
-    public TSPHPAst create(Token token) {
+    public ITSPHPAst create(Token token) {
         return new TSPHPAst(token);
     }
 
     @Override
-    public TSPHPAst dupNode(Object t) {
+    public ITSPHPAst dupNode(Object t) {
         if (t == null) {
             return null;
         }
@@ -44,7 +44,7 @@ public class TSPHPAstAdaptor extends CommonTreeAdaptor implements ITSPHPAstAdapt
     }
 
     @Override
-    public TSPHPAst errorNode(TokenStream input, Token start, Token stop, RecognitionException e) {
+    public ITSPHPAst errorNode(TokenStream input, Token start, Token stop, RecognitionException e) {
         TSPHPErrorNode node = new TSPHPErrorNode(input, start, stop, e);
         return node;
     }

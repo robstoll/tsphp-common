@@ -57,12 +57,12 @@ public interface IScope
     /**
      * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
      */
-    ISymbol resolve(TSPHPAst typeAst);
+    ISymbol resolve(ITSPHPAst typeAst);
 
     /**
      * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
      */
-    ITypeSymbol resolveType(TSPHPAst typeAst);
+    ITypeSymbol resolveType(ITSPHPAst typeAst);
 
     /**
      * Return the symbols which have been defined in this scope

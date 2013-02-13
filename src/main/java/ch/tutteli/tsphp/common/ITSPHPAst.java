@@ -16,7 +16,10 @@
  */
 package ch.tutteli.tsphp.common;
 
+import java.util.List;
+import org.antlr.runtime.Token;
 import org.antlr.runtime.tree.Tree;
+
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
@@ -33,4 +36,13 @@ public interface ITSPHPAst extends Tree
     void setScope(IScope newScope);
 
     boolean isDefinedEarlierThan(ITSPHPAst ast);
+
+    // Not defined in Tree but used through CommonTree 
+    public Token getToken();
+    
+    public List<ITSPHPAst> getChildren();
+    
+    @Override
+    ITSPHPAst getChild(int i);
+
 }

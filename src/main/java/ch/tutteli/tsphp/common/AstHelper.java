@@ -30,15 +30,15 @@ public class AstHelper implements IAstHelper
      * Copied from http://stackoverflow.com/questions/6781019/antlr-duplicate-a-tree
      */
     @Override
-    public TSPHPAst copyAst(TSPHPAst original) {
-        TSPHPAst copy = null;
+    public ITSPHPAst copyAst(ITSPHPAst original) {
+        ITSPHPAst copy = null;
         //original can be null if backtrack is active
         if (original != null) {
             copy = new TSPHPAst(original); // Leverage constructor
 
             if (original.getChildren() != null) {
                 for (Object child : original.getChildren()) {
-                    TSPHPAst childCopy = copyAst((TSPHPAst) child);
+                    ITSPHPAst childCopy = copyAst((ITSPHPAst) child);
                     childCopy.setParent(copy);
                     copy.addChild(childCopy);
                 }
@@ -48,7 +48,7 @@ public class AstHelper implements IAstHelper
     }
 
     @Override
-    public void addChildrenFromTo(TSPHPAst source, TSPHPAst target, TreeAdaptor adaptor) {
+    public void addChildrenFromTo(ITSPHPAst source, ITSPHPAst target, TreeAdaptor adaptor) {
         if (source != null) {
             RewriteRuleSubtreeStream stream_mod = new RewriteRuleSubtreeStream(adaptor, "classMemberModifiers", source);
             while (stream_mod.hasNext()) {

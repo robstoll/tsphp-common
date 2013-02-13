@@ -17,6 +17,7 @@
  */
 package ch.tutteli.tsphp.common;
 
+import java.util.List;
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.CommonTree;
 
@@ -35,10 +36,10 @@ public class TSPHPAst extends CommonTree implements ITSPHPAst
     public TSPHPAst() {
     }
 
-    public TSPHPAst(TSPHPAst ast) {
-        super(ast);
-        scope = ast.scope;
-        symbol = ast.symbol;
+    public TSPHPAst(ITSPHPAst ast) {
+        super((CommonTree) ast);
+        scope = ast.getScope();
+        symbol = ast.getSymbol();
     }
 
     public TSPHPAst(Token t) {
@@ -74,5 +75,15 @@ public class TSPHPAst extends CommonTree implements ITSPHPAst
     @Override
     public boolean isDefinedEarlierThan(ITSPHPAst ast) {
         return this.getTokenStartIndex() < ast.getTokenStartIndex();
+    }
+
+    @Override
+    public List<ITSPHPAst> getChildren() {
+        return (List<ITSPHPAst>) super.getChildren();
+    }
+
+    @Override
+    public ITSPHPAst getChild(int i) {
+        return (ITSPHPAst) super.getChild(i);
     }
 }

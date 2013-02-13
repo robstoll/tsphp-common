@@ -29,76 +29,76 @@ public interface IParser extends IErrorReporter
 {
 
     /**
-     * Parse the inputString and return the corresponding abstract syntax TSPHPAst (AST).
+     * Parse the inputString and return the corresponding abstract syntax ITSPHPAst (AST).
      *
-     * @return An abstract syntax TSPHPAst (AST)
+     * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html
      */
-    TSPHPAst parse(String inputString);
+    ITSPHPAst parse(String inputString);
 
     /**
-     * Parse the data and return the corresponding abstract syntax TSPHPAst (AST).
+     * Parse the data and return the corresponding abstract syntax ITSPHPAst (AST).
      *
-     * @return An abstract syntax TSPHPAst (AST)
+     * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html
      */
-    TSPHPAst parse(char[] data, int numberOfActualCharsInArray);
+    ITSPHPAst parse(char[] data, int numberOfActualCharsInArray);
 
     /**
-     * Parse the inputStream and return the corresponding abstract syntax TSPHPAst (AST).
+     * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
      *
-     * @return An abstract syntax TSPHPAst (AST)
+     * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
      */
-    TSPHPAst parseInputStream(InputStream input) throws IOException;
+    ITSPHPAst parseInputStream(InputStream input) throws IOException;
 
     /**
-     * Parse the inputStream and return the corresponding abstract syntax TSPHPAst (AST).
+     * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
      *
-     * @return An abstract syntax TSPHPAst (AST)
+     * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
      */
-    TSPHPAst parseInputStream(InputStream input, int size) throws IOException;
+    ITSPHPAst parseInputStream(InputStream input, int size) throws IOException;
 
     /**
-     * Parse the inputStream and return the corresponding abstract syntax TSPHPAst (AST).
+     * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
      *
-     * @return An abstract syntax TSPHPAst (AST)
+     * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
      */
-    TSPHPAst parseInputStream(InputStream input, String encoding) throws IOException;
+    ITSPHPAst parseInputStream(InputStream input, String encoding) throws IOException;
 
     /**
-     * Parse the inputStream and return the corresponding abstract syntax TSPHPAst (AST).
+     * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
      *
-     * @return An abstract syntax TSPHPAst (AST)
+     * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
      */
-    TSPHPAst parseInputStream(InputStream input, int size, String encoding) throws IOException;
+    ITSPHPAst parseInputStream(InputStream input, int size, String encoding) throws IOException;
 
     /**
-     * Parse the inputStream and return the corresponding abstract syntax TSPHPAst (AST).
+     * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
      *
-     * @return An abstract syntax TSPHPAst (AST)
+     * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
      */
-    TSPHPAst parseInputStream(InputStream input, int size, int readBufferSize, String encoding) throws IOException;
+    ITSPHPAst parseInputStream(InputStream input, int size, int readBufferSize, String encoding) throws IOException;
 
     /**
-     * Parse the file and return the corresponding abstract syntax TSPHPAst (AST).
+     * Parse the file and return the corresponding abstract syntax ITSPHPAst (AST).
      *
-     * @return An abstract syntax TSPHPAst (AST)
+     * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html
      */
-    TSPHPAst parseFile(String filename) throws IOException;
+    ITSPHPAst parseFile(String filename) throws IOException;
 
     /**
-     * Parse the file and return the corresponding abstract syntax TSPHPAst (AST).
+     * Parse the file and return the corresponding abstract syntax ITSPHPAst (AST).
      *
-     * @return An abstract syntax TSPHPAst (AST)
+     * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html
      */
-    TSPHPAst parseFile(String fileName, String encoding) throws IOException;
+    ITSPHPAst parseFile(String fileName, String encoding) throws IOException;
 
     TokenStream getTokenStream();
 

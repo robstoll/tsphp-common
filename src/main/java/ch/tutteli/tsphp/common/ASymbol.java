@@ -28,15 +28,15 @@ public abstract class ASymbol implements ISymbol
     protected String name;
     protected ITypeSymbol type;
     protected IScope definitionScope;
-    protected TSPHPAst definitionAst;
+    protected ITSPHPAst definitionAst;
 
-    public ASymbol(TSPHPAst theDefinitionAst, String theName) {
+    public ASymbol(ITSPHPAst theDefinitionAst, String theName) {
         name = theName;
         definitionAst = theDefinitionAst;
     }
 
     @Override
-    public TSPHPAst getDefinitionAst() {
+    public ITSPHPAst getDefinitionAst() {
         return definitionAst;
     }
 

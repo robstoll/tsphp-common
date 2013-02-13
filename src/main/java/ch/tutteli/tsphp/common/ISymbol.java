@@ -23,7 +23,7 @@ package ch.tutteli.tsphp.common;
 public interface ISymbol
 {
 
-    TSPHPAst getDefinitionAst();
+    ITSPHPAst getDefinitionAst();
 
     String getName();
 

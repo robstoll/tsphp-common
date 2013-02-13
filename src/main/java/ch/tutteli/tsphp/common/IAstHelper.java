@@ -25,7 +25,7 @@ import org.antlr.runtime.tree.TreeAdaptor;
 public interface IAstHelper
 {
 
-    TSPHPAst copyAst(TSPHPAst original);
+    ITSPHPAst copyAst(ITSPHPAst original);
 
-    void addChildrenFromTo(TSPHPAst source, TSPHPAst target, TreeAdaptor adaptor);
+    void addChildrenFromTo(ITSPHPAst source, ITSPHPAst target, TreeAdaptor adaptor);
 }

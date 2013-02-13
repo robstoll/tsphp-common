@@ -16,7 +16,7 @@
  */
 package ch.tutteli.tsphp.common.exceptions;
 
-import ch.tutteli.tsphp.common.TSPHPAst;
+import ch.tutteli.tsphp.common.ITSPHPAst;
 
 /**
  *
@@ -25,14 +25,14 @@ import ch.tutteli.tsphp.common.TSPHPAst;
 public class ReferenceException extends TypeCheckerException
 {
 
-    private TSPHPAst definition;
+    private ITSPHPAst definition;
 
-    public ReferenceException(String message, TSPHPAst theDefinition) {
+    public ReferenceException(String message, ITSPHPAst theDefinition) {
         super(message);
         definition = theDefinition;
     }
 
-    public TSPHPAst getDefinition() {
+    public ITSPHPAst getDefinition() {
         return definition;
     }
 }
