@@ -26,11 +26,11 @@ import org.antlr.runtime.tree.CommonTree;
  *
  * Adopted from the book Language Implementation Patterns by Terence Parr
  */
-public class TSPHPAst extends CommonTree
+public class TSPHPAst extends CommonTree implements ITSPHPAst
 {
 
-    public IScope scope;
-    public ISymbol symbol;
+    private IScope scope;
+    private ISymbol symbol;
 
     public TSPHPAst() {
     }
@@ -49,5 +49,30 @@ public class TSPHPAst extends CommonTree
             RecognitionException e) {
         TSPHPErrorNode errorNode = new TSPHPErrorNode(input, start, stop, e);
         return errorNode;
+    }
+
+    @Override
+    public ISymbol getSymbol() {
+        return symbol;
+    }
+
+    @Override
+    public void setSymbol(ISymbol newSymbol) {
+        symbol = newSymbol;
+    }
+
+    @Override
+    public IScope getScope() {
+        return scope;
+    }
+
+    @Override
+    public void setScope(IScope newScope) {
+        scope = newScope;
+    }
+
+    @Override
+    public boolean isDefinedEarlierThan(ITSPHPAst ast) {
+        return this.getTokenStartIndex() < ast.getTokenStartIndex();
     }
 }

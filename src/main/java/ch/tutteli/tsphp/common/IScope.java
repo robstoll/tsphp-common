@@ -16,7 +16,6 @@
  */
 package ch.tutteli.tsphp.common;
 
-import ch.tutteli.tsphp.common.exceptions.TypeCheckerException;
 import java.util.List;
 import java.util.Map;
 
@@ -50,12 +49,15 @@ public interface IScope
      */
     void define(ISymbol sym);
 
+    /**
+     * Check if everything is fine with the given symbol - no double declarations etc.
+     */
     void definitionCheck(ISymbol sym);
 
     /**
      * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
      */
-    ISymbol resolve(String name);
+    ISymbol resolve(TSPHPAst typeAst);
 
     /**
      * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
