@@ -37,12 +37,13 @@ public interface ITSPHPAst extends Tree
 
     boolean isDefinedEarlierThan(ITSPHPAst ast);
 
+    void setText(String text);
+
     // Not defined in Tree but used through CommonTree 
     public Token getToken();
-    
+
     public List<ITSPHPAst> getChildren();
-    
+
     @Override
     ITSPHPAst getChild(int i);
-
 }

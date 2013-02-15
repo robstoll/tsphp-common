@@ -71,6 +71,12 @@ public class TSPHPAst extends CommonTree implements ITSPHPAst
     public void setScope(IScope newScope) {
         scope = newScope;
     }
+    
+    @Override
+    public void setText(String text){
+        //Token should be defined, otherwise it is maybe better to throw a NullPointerException
+        this.token.setText(text);
+    }
 
     @Override
     public boolean isDefinedEarlierThan(ITSPHPAst ast) {
