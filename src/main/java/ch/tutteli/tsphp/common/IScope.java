@@ -17,7 +17,6 @@
 package ch.tutteli.tsphp.common;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  *
@@ -67,5 +66,5 @@ public interface IScope
     /**
      * Return the symbols which have been defined in this scope
      */
-    Map<String, List<ISymbol>> getSymbols();
+    ILowerCaseStringMap<List<ISymbol>> getSymbols();
 }
