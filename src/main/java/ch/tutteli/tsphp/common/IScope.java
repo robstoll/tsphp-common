@@ -17,6 +17,7 @@
 package ch.tutteli.tsphp.common;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -51,7 +52,7 @@ public interface IScope
     /**
      * Check if everything is fine with the given symbol - no double declarations etc.
      */
-    void definitionCheck(ISymbol sym);
+    boolean definitionCheck(ISymbol sym);
 
     /**
      * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
@@ -66,5 +67,5 @@ public interface IScope
     /**
      * Return the symbols which have been defined in this scope
      */
-    ILowerCaseStringMap<List<ISymbol>> getSymbols();
+    Map<String, List<ISymbol>> getSymbols();
 }
