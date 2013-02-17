@@ -22,12 +22,12 @@ import ch.tutteli.tsphp.common.ITSPHPAst;
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public class UnresolvedReferenceException extends TypeCheckerException
+public class ReferenceException extends TypeCheckerException
 {
 
     private ITSPHPAst definition;
 
-    public UnresolvedReferenceException(String message, ITSPHPAst theDefinition) {
+    public ReferenceException(String message, ITSPHPAst theDefinition) {
         super(message);
         definition = theDefinition;
     }
