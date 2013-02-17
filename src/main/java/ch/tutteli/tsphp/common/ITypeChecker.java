@@ -16,20 +16,16 @@
  */
 package ch.tutteli.tsphp.common;
 
+import org.antlr.runtime.tree.TreeNodeStream;
+
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public class TSPHPAstAdaptorRegistry
+public interface ITypeChecker extends IErrorReporter
 {
 
-    private static ITSPHPAstAdaptor treeAdopter;
+    void enrichWithDefinitions(ITSPHPAst ast, TreeNodeStream treeNodeStream);
 
-    public static void set(ITSPHPAstAdaptor newTreeAdaptor) {
-        treeAdopter = newTreeAdaptor;
-    }
-
-    public static ITSPHPAstAdaptor get() {
-        return treeAdopter;
-    }
+    void enrichWithReferences(ITSPHPAst ast, TreeNodeStream treeNodeStream);
 }
