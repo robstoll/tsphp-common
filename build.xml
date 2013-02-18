@@ -180,7 +180,6 @@
                 <attribute name="Implementation-User" value="${proj.autor}" />
                 <attribute name="Built-By" value="${proj.autor}" />
                 <attribute name="Sealed" value="false" />
-                <attribute name="Main-Class" value="${proj.startclass}" />
             </manifest>
         </jar>
     </target>
