@@ -43,9 +43,9 @@ public interface IScope
     void define(ISymbol sym);
 
     /**
-     * Check if everything is fine with the given symbol - no double declarations etc.
+     * Check if everything is fine with the given symbol - no double declarations.
      */
-    boolean definitionCheck(ISymbol sym);
+    boolean doubleDefinitionCheck(ISymbol sym);
 
     /**
      * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
