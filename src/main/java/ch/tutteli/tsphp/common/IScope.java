@@ -31,13 +31,6 @@ public interface IScope
     String getScopeName();
 
     /**
-     * Return the parent scope or null if no parent scope was defined.
-     *
-     * The parent scope is not necessarily the enclosing scope. For instance, classes can have a parent class.
-     */
-    IScope getParentScope();
-
-    /**
      * Return the scope in which this scope is defined.
      *
      * Returns null for global scope.
@@ -58,11 +51,6 @@ public interface IScope
      * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
      */
     ISymbol resolve(ITSPHPAst typeAst);
-
-    /**
-     * Look up a name in this scope and return the corresponding symbol or null in the case where it cannot be found.
-     */
-    ITypeSymbol resolveType(ITSPHPAst typeAst);
 
     /**
      * Return the symbols which have been defined in this scope
