@@ -22,7 +22,11 @@ package ch.tutteli.tsphp.common.exceptions;
  */
 public class TypeCheckerException extends Exception
 {
-    public TypeCheckerException(String message){
+
+    public TypeCheckerException() {
+    }
+
+    public TypeCheckerException(String message) {
         super(message);
     }
 }

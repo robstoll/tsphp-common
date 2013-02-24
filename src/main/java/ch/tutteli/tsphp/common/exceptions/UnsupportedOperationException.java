@@ -14,28 +14,25 @@
  * limitations under the License.
  * 
  */
-package ch.tutteli.tsphp.common;
+package ch.tutteli.tsphp.common.exceptions;
 
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.Token;
-import org.antlr.runtime.TokenStream;
-import org.antlr.runtime.tree.TreeAdaptor;
+import ch.tutteli.tsphp.common.ITSPHPAst;
 
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public interface ITSPHPAstAdaptor extends TreeAdaptor
+public class UnsupportedOperationException extends TypeCheckerException
 {
 
-    ITSPHPAst create(ITSPHPAst ast);
+    private ITSPHPAst operator;
 
-    @Override
-    ITSPHPAst create(Token token);
+    public UnsupportedOperationException(String message, ITSPHPAst theOperator) {
+        super(message);
+        operator = theOperator;
+    }
 
-    @Override
-    ITSPHPAst dupNode(Object t);
-
-    @Override
-    ITSPHPAst errorNode(TokenStream input, Token start, Token stop, RecognitionException e);
+    public ITSPHPAst getOperator() {
+        return operator;
+    }
 }

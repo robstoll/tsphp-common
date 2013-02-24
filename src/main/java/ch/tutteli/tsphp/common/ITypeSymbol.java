@@ -24,4 +24,5 @@ package ch.tutteli.tsphp.common;
 public interface ITypeSymbol extends ISymbol
 {
 
+    ITypeSymbol getParentTypeSymbol();
 }

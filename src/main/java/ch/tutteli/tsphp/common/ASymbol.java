@@ -68,5 +68,5 @@ public abstract class ASymbol implements ISymbol
     @Override
     public String toString() {
         return getName() + (type != null ? ":" + type : "");
-    }    
+    }
 }

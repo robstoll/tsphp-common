@@ -35,6 +35,10 @@ public interface ITSPHPAst extends Tree
 
     void setScope(IScope newScope);
 
+     ITypeSymbol getEvalType();
+
+    void setEvalType(ITypeSymbol newEvalType);
+    
     boolean isDefinedEarlierThan(ITSPHPAst ast);
 
     void setText(String text);

@@ -32,14 +32,18 @@ public class TSPHPAst extends CommonTree implements ITSPHPAst
 
     private IScope scope;
     private ISymbol symbol;
+    private ITypeSymbol evalType;
 
     public TSPHPAst() {
     }
 
     public TSPHPAst(ITSPHPAst ast) {
         super((CommonTree) ast);
+        //CommonTree does not clone token
+        token = new CommonToken(token);
         scope = ast.getScope();
         symbol = ast.getSymbol();
+        evalType = ast.getEvalType();
     }
 
     public TSPHPAst(Token t) {
@@ -71,9 +75,19 @@ public class TSPHPAst extends CommonTree implements ITSPHPAst
     public void setScope(IScope newScope) {
         scope = newScope;
     }
-    
+
     @Override
-    public void setText(String text){
+    public ITypeSymbol getEvalType() {
+        return evalType;
+    }
+
+    @Override
+    public void setEvalType(ITypeSymbol newEvalType) {
+        evalType = newEvalType;
+    }
+
+    @Override
+    public void setText(String text) {
         //Token should be defined, otherwise it is maybe better to throw a NullPointerException
         this.token.setText(text);
     }

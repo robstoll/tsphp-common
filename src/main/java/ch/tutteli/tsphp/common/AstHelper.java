@@ -26,15 +26,21 @@ import org.antlr.runtime.tree.TreeAdaptor;
 public class AstHelper implements IAstHelper
 {
 
+    private ITSPHPAstAdaptor adaptor;
+
+    public AstHelper(ITSPHPAstAdaptor theAdaptor) {
+        adaptor = theAdaptor;
+    }
+
     /**
-     * Copied from http://stackoverflow.com/questions/6781019/antlr-duplicate-a-tree
+     * Adopted from http://stackoverflow.com/questions/6781019/antlr-duplicate-a-tree
      */
     @Override
     public ITSPHPAst copyAst(ITSPHPAst original) {
         ITSPHPAst copy = null;
         //original can be null if backtrack is active
         if (original != null) {
-            copy = new TSPHPAst(original); // Leverage constructor
+            copy = adaptor.create(original); // Leverage constructor
 
             if (original.getChildren() != null) {
                 for (Object child : original.getChildren()) {
