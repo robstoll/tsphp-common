@@ -28,4 +28,6 @@ public interface ITypeChecker extends IErrorReporter
     void enrichWithDefinitions(ITSPHPAst ast, TreeNodeStream treeNodeStream);
 
     void enrichWithReferences(ITSPHPAst ast, TreeNodeStream treeNodeStream);
+    
+    void doTypeChecking(ITSPHPAst ast, TreeNodeStream treeNodeStream);
 }
