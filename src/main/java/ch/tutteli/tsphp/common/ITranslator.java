@@ -16,7 +16,6 @@
  */
 package ch.tutteli.tsphp.common;
 
-import java.io.IOException;
 import org.antlr.runtime.tree.TreeNodeStream;
 
 /**
@@ -26,8 +25,8 @@ import org.antlr.runtime.tree.TreeNodeStream;
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public interface ITranslator
+public interface ITranslator extends IErrorReporter
 {
 
-    String translate(ITSPHPAst ast, TreeNodeStream treeNodeStream) throws IOException;
+    String translate(TreeNodeStream treeNodeStream);
 }
