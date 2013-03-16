@@ -25,7 +25,7 @@ import org.antlr.runtime.TokenStream;
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public interface IParser extends IErrorReporter
+public interface IParser extends IErrorReporter, IErrorLogger
 {
 
     /**

@@ -22,7 +22,7 @@ import org.antlr.runtime.tree.TreeNodeStream;
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public interface ITypeChecker extends IErrorReporter
+public interface ITypeChecker extends IErrorReporter, IErrorLogger
 {
 
     void enrichWithDefinitions(ITSPHPAst ast, TreeNodeStream treeNodeStream);
