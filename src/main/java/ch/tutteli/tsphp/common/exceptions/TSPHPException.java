@@ -14,35 +14,27 @@
  * limitations under the License.
  * 
  */
-package ch.tutteli.tsphp.common;
-
-import java.util.List;
+package ch.tutteli.tsphp.common.exceptions;
 
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public interface IErrorReporter
+public class TSPHPException extends Exception
 {
 
-    /**
-     * Add the given error logger as listener for errors. 
-     * 
-     * This error reporter will pass all errors detected to the error logger.
-     */
-    void addErrorLogger(IErrorLogger logger);
+    public TSPHPException() {
+    }
 
-    /**
-     * Indicate whether one or more errors have been found.
-     *
-     * @return True if errors have been found otherwise false.
-     */
-    boolean hasFoundError();
+    public TSPHPException(String message) {
+        super(message);
+    }
 
-    /**
-     * Return the found errors as a list of exceptions.
-     *
-     * @return The found errors
-     */
-    List<Exception> getExceptions();
+    public TSPHPException(Throwable cause) {
+        super(cause);
+    }
+
+    public TSPHPException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

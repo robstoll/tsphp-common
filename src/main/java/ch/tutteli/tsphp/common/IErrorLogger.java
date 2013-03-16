@@ -16,33 +16,13 @@
  */
 package ch.tutteli.tsphp.common;
 
-import java.util.List;
+import ch.tutteli.tsphp.common.exceptions.TSPHPException;
 
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public interface IErrorReporter
+public interface IErrorLogger
 {
-
-    /**
-     * Add the given error logger as listener for errors. 
-     * 
-     * This error reporter will pass all errors detected to the error logger.
-     */
-    void addErrorLogger(IErrorLogger logger);
-
-    /**
-     * Indicate whether one or more errors have been found.
-     *
-     * @return True if errors have been found otherwise false.
-     */
-    boolean hasFoundError();
-
-    /**
-     * Return the found errors as a list of exceptions.
-     *
-     * @return The found errors
-     */
-    List<Exception> getExceptions();
+    void log(TSPHPException ex);
 }
