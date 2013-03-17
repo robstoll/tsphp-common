@@ -18,14 +18,12 @@ package ch.tutteli.tsphp.common;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
-import org.antlr.runtime.TokenStream;
 
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public interface IParser extends IErrorReporter, IErrorLogger
+public interface IParser extends IErrorReporter
 {
 
     /**
@@ -34,7 +32,7 @@ public interface IParser extends IErrorReporter, IErrorLogger
      * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html
      */
-    ITSPHPAst parse(String inputString);
+    ParserUnitDto parse(String inputString);
 
     /**
      * Parse the data and return the corresponding abstract syntax ITSPHPAst (AST).
@@ -42,7 +40,7 @@ public interface IParser extends IErrorReporter, IErrorLogger
      * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html
      */
-    ITSPHPAst parse(char[] data, int numberOfActualCharsInArray);
+    ParserUnitDto parse(char[] data, int numberOfActualCharsInArray);
 
     /**
      * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
@@ -50,7 +48,7 @@ public interface IParser extends IErrorReporter, IErrorLogger
      * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
      */
-    ITSPHPAst parseInputStream(InputStream input) throws IOException;
+    ParserUnitDto parseInputStream(InputStream input) throws IOException;
 
     /**
      * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
@@ -58,7 +56,7 @@ public interface IParser extends IErrorReporter, IErrorLogger
      * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
      */
-    ITSPHPAst parseInputStream(InputStream input, int size) throws IOException;
+    ParserUnitDto parseInputStream(InputStream input, int size) throws IOException;
 
     /**
      * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
@@ -66,7 +64,7 @@ public interface IParser extends IErrorReporter, IErrorLogger
      * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
      */
-    ITSPHPAst parseInputStream(InputStream input, String encoding) throws IOException;
+    ParserUnitDto parseInputStream(InputStream input, String encoding) throws IOException;
 
     /**
      * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
@@ -74,7 +72,7 @@ public interface IParser extends IErrorReporter, IErrorLogger
      * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
      */
-    ITSPHPAst parseInputStream(InputStream input, int size, String encoding) throws IOException;
+    ParserUnitDto parseInputStream(InputStream input, int size, String encoding) throws IOException;
 
     /**
      * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
@@ -82,7 +80,7 @@ public interface IParser extends IErrorReporter, IErrorLogger
      * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html
      */
-    ITSPHPAst parseInputStream(InputStream input, int size, int readBufferSize, String encoding) throws IOException;
+    ParserUnitDto parseInputStream(InputStream input, int size, int readBufferSize, String encoding) throws IOException;
 
     /**
      * Parse the file and return the corresponding abstract syntax ITSPHPAst (AST).
@@ -90,7 +88,7 @@ public interface IParser extends IErrorReporter, IErrorLogger
      * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html
      */
-    ITSPHPAst parseFile(String filename) throws IOException;
+    ParserUnitDto parseFile(String filename) throws IOException;
 
     /**
      * Parse the file and return the corresponding abstract syntax ITSPHPAst (AST).
@@ -98,9 +96,7 @@ public interface IParser extends IErrorReporter, IErrorLogger
      * @return An abstract syntax ITSPHPAst (AST)
      * @see http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html
      */
-    ITSPHPAst parseFile(String fileName, String encoding) throws IOException;
-
-    TokenStream getTokenStream();
+    ParserUnitDto parseFile(String fileName, String encoding) throws IOException;
 
     /**
      * Indicate whether one or more syntax errors have been found during the check.
@@ -109,12 +105,4 @@ public interface IParser extends IErrorReporter, IErrorLogger
      */
     @Override
     boolean hasFoundError();
-
-    /**
-     * Return the found syntax errors as a list of exceptions.
-     *
-     * @return The found syntax errors
-     */
-    @Override
-    List<Exception> getExceptions();
 }

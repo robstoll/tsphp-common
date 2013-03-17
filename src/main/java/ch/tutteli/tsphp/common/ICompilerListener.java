@@ -22,5 +22,12 @@ package ch.tutteli.tsphp.common;
  */
 public interface ICompilerListener
 {
+
+    public void afterParsingAndDefinitionPhaseCompleted();
+
+    public void afterReferencePhaseCompleted();
+
+    public void afterTypecheckingCompleted();
+
     public void afterCompilingCompleted();
 }

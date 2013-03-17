@@ -22,7 +22,7 @@ import org.antlr.runtime.tree.TreeNodeStream;
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public interface ITypeChecker extends IErrorReporter, IErrorLogger
+public interface ITypeChecker extends IErrorReporter
 {
 
     void enrichWithDefinitions(ITSPHPAst ast, TreeNodeStream treeNodeStream);
@@ -30,4 +30,12 @@ public interface ITypeChecker extends IErrorReporter, IErrorLogger
     void enrichWithReferences(ITSPHPAst ast, TreeNodeStream treeNodeStream);
     
     void doTypeChecking(ITSPHPAst ast, TreeNodeStream treeNodeStream);
+    
+    /**
+     * Reset the type checker.
+     * 
+     * It will forget about previous definitions etc. next to drop previous exceptions
+     */
+    @Override
+    void reset();
 }

@@ -28,7 +28,7 @@ public interface IErrorReporter
     /**
      * Add the given error logger as listener for errors. 
      * 
-     * This error reporter will pass all errors detected to the error logger.
+     * The error reporter will pass all errors detected to the error logger.
      */
     void addErrorLogger(IErrorLogger logger);
 
@@ -38,11 +38,9 @@ public interface IErrorReporter
      * @return True if errors have been found otherwise false.
      */
     boolean hasFoundError();
-
+    
     /**
-     * Return the found errors as a list of exceptions.
-     *
-     * @return The found errors
+     * Drop previous exceptions
      */
-    List<Exception> getExceptions();
+    void reset();
 }

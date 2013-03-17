@@ -20,7 +20,7 @@ package ch.tutteli.tsphp.common.exceptions;
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public class TypeCheckerException extends Exception
+public class TypeCheckerException extends TSPHPException
 {
 
     public TypeCheckerException() {

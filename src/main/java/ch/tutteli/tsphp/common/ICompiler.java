@@ -57,7 +57,19 @@ public interface ICompiler extends IErrorReporter, IErrorLogger
 
     void compile();
     
+    boolean isCompiling();
+    
+    /**
+     * Will drop all previous compiled compilation units and occurred exceptions.
+     * 
+     * It will also make sure, that all sub components (parser, type checker, translator) are reset.
+     */
+    @Override
     void reset();
+    
+    boolean needsAReset();
 
     Map<String, String> getTranslations();
+    
+    
 }

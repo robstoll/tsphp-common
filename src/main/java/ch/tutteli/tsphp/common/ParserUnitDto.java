@@ -16,17 +16,22 @@
  */
 package ch.tutteli.tsphp.common;
 
-import org.antlr.runtime.tree.TreeNodeStream;
+import org.antlr.runtime.TokenStream;
 
 /**
- * Represents an translator which translates an ITSPHPAst to an output format.
- *
- * For instance to PHP 5.5, PHP 5.4 etc.
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public interface ITranslator extends IErrorReporter
+public class ParserUnitDto
 {
 
-    String translate(TreeNodeStream treeNodeStream);
+    public String id;
+    public ITSPHPAst compilationUnit;
+    public TokenStream tokenStream;
+
+    public ParserUnitDto(String theId, ITSPHPAst theCompilationUnit, TokenStream theTokenStream) {
+        id = theId;
+        compilationUnit = theCompilationUnit;
+        tokenStream = theTokenStream;
+    }
 }
