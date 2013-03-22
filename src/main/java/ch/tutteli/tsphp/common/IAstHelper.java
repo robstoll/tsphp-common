@@ -16,8 +16,6 @@
  */
 package ch.tutteli.tsphp.common;
 
-import org.antlr.runtime.tree.TreeAdaptor;
-
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
@@ -27,5 +25,5 @@ public interface IAstHelper
 
     ITSPHPAst copyAst(ITSPHPAst original);
 
-    void addChildrenFromTo(ITSPHPAst source, ITSPHPAst target, TreeAdaptor adaptor);
+    void addChildrenFromTo(ITSPHPAst source, ITSPHPAst target);
 }

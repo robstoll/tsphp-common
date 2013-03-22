@@ -18,7 +18,10 @@
 package ch.tutteli.tsphp.common;
 
 import java.util.List;
-import org.antlr.runtime.*;
+import org.antlr.runtime.CommonToken;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.Token;
+import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.CommonTree;
 
 /**
@@ -35,6 +38,7 @@ public class TSPHPAst extends CommonTree implements ITSPHPAst
     private ITypeSymbol evalType;
 
     public TSPHPAst() {
+        //used to create pseudo ASTs
     }
 
     public TSPHPAst(ITSPHPAst ast) {
@@ -46,14 +50,13 @@ public class TSPHPAst extends CommonTree implements ITSPHPAst
         evalType = ast.getEvalType();
     }
 
-    public TSPHPAst(Token t) {
-        super(t);
+    public TSPHPAst(Token token) {
+        super(token);
     }
 
     public Object errorNode(TokenStream input, Token start, Token stop,
-            RecognitionException e) {
-        TSPHPErrorNode errorNode = new TSPHPErrorNode(input, start, stop, e);
-        return errorNode;
+            RecognitionException exception) {
+        return new TSPHPErrorNode(input, start, stop, exception);
     }
 
     @Override
@@ -103,7 +106,7 @@ public class TSPHPAst extends CommonTree implements ITSPHPAst
     }
 
     @Override
-    public ITSPHPAst getChild(int i) {
-        return (ITSPHPAst) super.getChild(i);
+    public ITSPHPAst getChild(int index) {
+        return (ITSPHPAst) super.getChild(index);
     }
 }

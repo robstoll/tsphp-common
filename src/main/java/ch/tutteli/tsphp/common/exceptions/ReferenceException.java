@@ -25,7 +25,7 @@ import ch.tutteli.tsphp.common.ITSPHPAst;
 public class ReferenceException extends TypeCheckerException
 {
 
-    private ITSPHPAst definition;
+    private final ITSPHPAst definition;
 
     public ReferenceException(String message, ITSPHPAst theDefinition) {
         super(message);

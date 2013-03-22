@@ -49,5 +49,5 @@ public interface ITSPHPAst extends Tree
     public List<ITSPHPAst> getChildren();
 
     @Override
-    ITSPHPAst getChild(int i);
+    ITSPHPAst getChild(int index);
 }

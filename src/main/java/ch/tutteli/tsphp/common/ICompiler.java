@@ -16,7 +16,6 @@
  */
 package ch.tutteli.tsphp.common;
 
-import ch.tutteli.tsphp.common.IErrorReporter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
@@ -56,20 +55,18 @@ public interface ICompiler extends IErrorReporter, IErrorLogger
     void addFile(String pathToFileInclFileName, String encoding) throws IOException;
 
     void compile();
-    
+
     boolean isCompiling();
-    
+
     /**
      * Will drop all previous compiled compilation units and occurred exceptions.
-     * 
+     *
      * It will also make sure, that all sub components (parser, type checker, translator) are reset.
      */
     @Override
     void reset();
-    
+
     boolean needsAReset();
 
     Map<String, String> getTranslations();
-    
-    
 }

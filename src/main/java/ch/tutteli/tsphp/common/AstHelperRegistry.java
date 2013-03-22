@@ -20,10 +20,13 @@ package ch.tutteli.tsphp.common;
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public class AstHelperRegistry
+public final class AstHelperRegistry
 {
 
     private static IAstHelper astHelper;
+
+    private AstHelperRegistry() {
+    }
 
     public static void set(IAstHelper newAstHelper) {
         astHelper = newAstHelper;

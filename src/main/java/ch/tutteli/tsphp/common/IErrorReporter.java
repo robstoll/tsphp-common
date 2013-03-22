@@ -16,8 +16,6 @@
  */
 package ch.tutteli.tsphp.common;
 
-import java.util.List;
-
 /**
  *
  * @author Robert Stoll <rstoll@tutteli.ch>

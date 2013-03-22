@@ -24,6 +24,7 @@ public class TSPHPException extends Exception
 {
 
     public TSPHPException() {
+        //default constructor used by sub-classes
     }
 
     public TSPHPException(String message) {

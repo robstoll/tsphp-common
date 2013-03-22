@@ -25,8 +25,8 @@ import ch.tutteli.tsphp.common.ITSPHPAst;
 public class DefinitionException extends TypeCheckerException
 {
 
-    private ITSPHPAst existingDefinition;
-    private ITSPHPAst newDefinition;
+    private final ITSPHPAst existingDefinition;
+    private final ITSPHPAst newDefinition;
 
     public DefinitionException(String message, ITSPHPAst theExistingDefinition, ITSPHPAst theNewDefinition) {
         super(message);

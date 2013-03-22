@@ -32,9 +32,9 @@ public class TSPHPErrorNode extends TSPHPAst
 
     CommonErrorNode errorNode;
 
-    public TSPHPErrorNode(TokenStream input, Token start, Token stop, RecognitionException e) {
+    public TSPHPErrorNode(TokenStream input, Token start, Token stop, RecognitionException exception) {
         super(start);
-        errorNode = new CommonErrorNode(input, start, stop, e);
+        errorNode = new CommonErrorNode(input, start, stop, exception);
     }
 
     @Override

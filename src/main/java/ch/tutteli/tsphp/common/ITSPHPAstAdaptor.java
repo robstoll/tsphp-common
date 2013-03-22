@@ -34,8 +34,8 @@ public interface ITSPHPAstAdaptor extends TreeAdaptor
     ITSPHPAst create(Token token);
 
     @Override
-    ITSPHPAst dupNode(Object t);
+    ITSPHPAst dupNode(Object ast);
 
     @Override
-    ITSPHPAst errorNode(TokenStream input, Token start, Token stop, RecognitionException e);
+    ITSPHPAst errorNode(TokenStream input, Token start, Token stop, RecognitionException exception);
 }

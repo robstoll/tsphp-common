@@ -17,7 +17,6 @@
 package ch.tutteli.tsphp.common;
 
 import org.antlr.runtime.tree.RewriteRuleSubtreeStream;
-import org.antlr.runtime.tree.TreeAdaptor;
 
 /**
  *
@@ -26,14 +25,14 @@ import org.antlr.runtime.tree.TreeAdaptor;
 public class AstHelper implements IAstHelper
 {
 
-    private ITSPHPAstAdaptor adaptor;
+    private final ITSPHPAstAdaptor adaptor;
 
     public AstHelper(ITSPHPAstAdaptor theAdaptor) {
         adaptor = theAdaptor;
     }
 
     /**
-     * Adopted from http://stackoverflow.com/questions/6781019/antlr-duplicate-a-tree
+     * Adopted from http://stackoverflow.com/questions/6781019/antlr-duplicate-a-tree .
      */
     @Override
     public ITSPHPAst copyAst(ITSPHPAst original) {
@@ -54,11 +53,11 @@ public class AstHelper implements IAstHelper
     }
 
     @Override
-    public void addChildrenFromTo(ITSPHPAst source, ITSPHPAst target, TreeAdaptor adaptor) {
+    public void addChildrenFromTo(ITSPHPAst source, ITSPHPAst target) {
         if (source != null) {
-            RewriteRuleSubtreeStream stream_mod = new RewriteRuleSubtreeStream(adaptor, "classMemberModifiers", source);
-            while (stream_mod.hasNext()) {
-                adaptor.addChild(target, stream_mod.nextTree());
+            RewriteRuleSubtreeStream streamMod = new RewriteRuleSubtreeStream(adaptor, "classMemberModifiers", source);
+            while (streamMod.hasNext()) {
+                adaptor.addChild(target, streamMod.nextTree());
             }
         }
     }

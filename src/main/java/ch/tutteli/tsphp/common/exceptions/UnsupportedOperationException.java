@@ -25,7 +25,7 @@ import ch.tutteli.tsphp.common.ITSPHPAst;
 public class UnsupportedOperationException extends TypeCheckerException
 {
 
-    private ITSPHPAst operator;
+    private final ITSPHPAst operator;
 
     public UnsupportedOperationException(String message, ITSPHPAst theOperator) {
         super(message);
