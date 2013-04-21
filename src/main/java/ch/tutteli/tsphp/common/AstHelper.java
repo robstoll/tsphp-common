@@ -16,6 +16,7 @@
  */
 package ch.tutteli.tsphp.common;
 
+import org.antlr.runtime.CommonToken;
 import org.antlr.runtime.tree.RewriteRuleSubtreeStream;
 
 /**
@@ -25,10 +26,20 @@ import org.antlr.runtime.tree.RewriteRuleSubtreeStream;
 public class AstHelper implements IAstHelper
 {
 
-    private final ITSPHPAstAdaptor adaptor;
+    private final ITSPHPAstAdaptor astAdaptor;
 
     public AstHelper(ITSPHPAstAdaptor theAdaptor) {
-        adaptor = theAdaptor;
+        astAdaptor = theAdaptor;
+    }
+
+    @Override
+    public ITSPHPAst createAst(ITSPHPAst ast) {
+        return astAdaptor.create(ast);
+    }
+
+    @Override
+    public ITSPHPAst createAst(int tokenType, String name) {
+        return (ITSPHPAst) astAdaptor.create(tokenType, new CommonToken(tokenType, name));
     }
 
     /**
@@ -39,7 +50,7 @@ public class AstHelper implements IAstHelper
         ITSPHPAst copy = null;
         //original can be null if backtrack is active
         if (original != null) {
-            copy = adaptor.create(original); // Leverage constructor
+            copy = astAdaptor.create(original); // Leverage constructor
 
             if (original.getChildren() != null) {
                 for (Object child : original.getChildren()) {
@@ -55,10 +66,22 @@ public class AstHelper implements IAstHelper
     @Override
     public void addChildrenFromTo(ITSPHPAst source, ITSPHPAst target) {
         if (source != null) {
-            RewriteRuleSubtreeStream streamMod = new RewriteRuleSubtreeStream(adaptor, "classMemberModifiers", source);
+            RewriteRuleSubtreeStream streamMod = new RewriteRuleSubtreeStream(astAdaptor, "classMemberModifiers", source);
             while (streamMod.hasNext()) {
-                adaptor.addChild(target, streamMod.nextTree());
+                astAdaptor.addChild(target, streamMod.nextTree());
             }
         }
+    }
+
+    /**
+     * Prepend ast to target, makes ast the parent of target
+     */
+    @Override
+    public void prependAst(ITSPHPAst ast, ITSPHPAst target) {
+        ITSPHPAst parent = (ITSPHPAst) target.getParent();
+        int childIndex = target.getChildIndex();
+        ast.setParent(parent);
+        ast.addChild(target);
+        parent.replaceChildren(childIndex, childIndex, ast);
     }
 }

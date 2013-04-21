@@ -23,7 +23,7 @@ package ch.tutteli.tsphp.common;
 public final class AstHelperRegistry
 {
 
-    private static IAstHelper astHelper;
+    private static IAstHelper astHelper = new AstHelper(new TSPHPAstAdaptor());
 
     private AstHelperRegistry() {
     }
