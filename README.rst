@@ -4,7 +4,7 @@ TSPHP-common
 | Please visit the `project's homepage <http://tsphp.tutteli.ch/>`_ for more information.
 
 | 
-| Copyright 2012 Robert Stoll <rstoll@tutteli.ch>
+| Copyright 2013 Robert Stoll <rstoll@tutteli.ch>
 | 
 | Licensed under the Apache License, Version 2.0 (the "License");
 | you may not use this file except in compliance with the License.
