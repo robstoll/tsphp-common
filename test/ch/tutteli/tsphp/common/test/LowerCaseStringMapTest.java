@@ -63,6 +63,7 @@ public class LowerCaseStringMapTest
         return Arrays.asList(new Object[][]{
                     {"1", "2", "3", "4"},
                     {"a", "b", "c", "d"},
-                    {"t", "z", "u", "o"},});
+                    {"t", "z", "u", "o"}
+        });
     }
 }
