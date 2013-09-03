@@ -66,15 +66,15 @@ public class AstHelper implements IAstHelper
     @Override
     public void addChildrenFromTo(ITSPHPAst source, ITSPHPAst target) {
         if (source != null) {
-            RewriteRuleSubtreeStream streamMod = new RewriteRuleSubtreeStream(astAdaptor, "classMemberModifiers", source);
-            while (streamMod.hasNext()) {
-                astAdaptor.addChild(target, streamMod.nextTree());
+            RewriteRuleSubtreeStream stream = new RewriteRuleSubtreeStream(astAdaptor, "classMemberModifiers", source);
+            while (stream.hasNext()) {
+                astAdaptor.addChild(target, stream.nextTree());
             }
         }
     }
 
     /**
-     * Prepend ast to target, makes ast the parent of target
+     * Prepend ast to target, makes ast the parent of target.
      */
     @Override
     public void prependAst(ITSPHPAst ast, ITSPHPAst target) {

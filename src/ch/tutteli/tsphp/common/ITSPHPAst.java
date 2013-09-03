@@ -44,9 +44,9 @@ public interface ITSPHPAst extends Tree
     void setText(String text);
 
     // Not defined in Tree but used through CommonTree 
-    public Token getToken();
+    Token getToken();
 
-    public List<ITSPHPAst> getChildren();
+    List<ITSPHPAst> getChildren();
 
     @Override
     ITSPHPAst getChild(int index);
