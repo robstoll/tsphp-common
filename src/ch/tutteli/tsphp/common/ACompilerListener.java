@@ -20,10 +20,10 @@ package ch.tutteli.tsphp.common;
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  */
-public class CompilerListener implements ICompilerListener
+public abstract class ACompilerListener implements ICompilerListener
 {
 
-    protected CompilerListener() {
+    protected ACompilerListener() {
         //Prevent instantiation - implement subclass and do not use this class directly
     }
 
