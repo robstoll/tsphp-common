@@ -4,10 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Represents a scope in code.
  *
- * @author Robert Stoll <rstoll@tutteli.ch>
- *
- * Adopted from the book Language Implementation Patterns by Terence Parr
+ * Adopted from the book Language Implementation Patterns by Terence Parr.
  */
 public interface IScope
 {

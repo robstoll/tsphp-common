@@ -2,12 +2,16 @@ package ch.tutteli.tsphp.common.test;
 
 import ch.tutteli.tsphp.common.ILowerCaseStringMap;
 import ch.tutteli.tsphp.common.LowerCaseStringMap;
-import java.util.Arrays;
-import java.util.Collection;
-import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class LowerCaseStringMapTest
@@ -31,11 +35,11 @@ public class LowerCaseStringMapTest
         a.put(key1, value1);
         a.put(key2, value2);
 
-        Assert.assertTrue(a.containsKey(key1));
-        Assert.assertTrue(a.containsKey(key2));
+        assertTrue(a.containsKey(key1));
+        assertTrue(a.containsKey(key2));
 
-        Assert.assertEquals(value1, a.get(key1));
-        Assert.assertEquals(value2, a.get(key2));
+        assertThat(a.get(key1), is(value1));
+        assertThat(a.get(key2), is(value2));
     }
 
     @Parameterized.Parameters

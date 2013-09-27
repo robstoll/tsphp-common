@@ -1,10 +1,7 @@
 package ch.tutteli.tsphp.common;
 
 /**
- *
- * @author Robert Stoll <rstoll@tutteli.ch>
- *
- * Adopted from the book Language Implementation Patterns by Terence Parr
+ * Adopted from the book "Language Implementation Patterns" by Terence Parr
  */
 public abstract class ASymbol implements ISymbol
 {
