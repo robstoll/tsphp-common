@@ -6,6 +6,8 @@ import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.CommonTreeAdaptor;
 
 /**
+ * Adaptor used to create the correct type of {@link ITSPHPAst}.
+ *
  * Adopted from the book "Language Implementation Patterns" by Terence Parr
  */
 public class TSPHPAstAdaptor extends CommonTreeAdaptor implements ITSPHPAstAdaptor

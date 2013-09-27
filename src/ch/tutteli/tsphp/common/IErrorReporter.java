@@ -6,9 +6,9 @@ public interface IErrorReporter
     /**
      * Add the given error logger as listener for errors. 
      * 
-     * The error reporter will pass all errors detected to the error logger.
+     * The error reporter will pass all errors detected to the registered error loggers.
      */
-    void addErrorLogger(IErrorLogger logger);
+    void registerErrorLogger(IErrorLogger logger);
 
     /**
      * Indicate whether one or more errors have been found.
