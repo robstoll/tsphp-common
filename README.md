@@ -2,7 +2,8 @@
 
 This repository contains the interfaces used by the [compiler](https://github.com/tsphp/tsphp "compiler") to integrate the different TSPHP components ([parser](https://github.com/tsphp/tsphp-parser "Parser component"), [type checker](https://github.com/tsphp/tsphp-typechecker "type checker component") and [translator](https://github.com/tsphp/tsphp-translators-php54 "translator component")). In addition, it contains common classes like the AST representation TSPHPAst.
 
-Please visit the [project's homepage](http://tsphp.tutteli.ch/) for more information.
+Please visit the [project's website](http://tsphp.tutteli.ch/) for more information on the project.  
+Use the project's [issue tracking system](http://tsphp.tutteli.ch/jira) (JIRA) to report bugs or submit feature requests.
 
 <br/>
 
