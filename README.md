@@ -1,6 +1,6 @@
 #TSPHP-common
 
-This repository contains the interfaces used by the [compiler](../tsphp "compiler") to integrate the different TSPHP components ([parser](../tsphp-parser "Parser component"), [type checker](tsphp-typechecker "type checker component") and [translator](../tsphp-translators-php54 "translator component")). In addition, it contains common classes like the AST representation TSPHPAst.
+This repository contains the interfaces used by the [compiler](https://github.com/tsphp/tsphp "compiler") to integrate the different TSPHP components ([parser](https://github.com/tsphp/tsphp-parser "Parser component"), [type checker](https://github.com/tsphp/tsphp-typechecker "type checker component") and [translator](https://github.com/tsphp/tsphp-translators-php54 "translator component")). In addition, it contains common classes like the AST representation TSPHPAst.
 
 Please visit the [project's homepage](http://tsphp.tutteli.ch/) for more information.
 
