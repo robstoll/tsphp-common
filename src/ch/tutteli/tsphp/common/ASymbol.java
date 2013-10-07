@@ -6,10 +6,10 @@ package ch.tutteli.tsphp.common;
 public abstract class ASymbol implements ISymbol
 {
 
-    protected String name;
+    protected final String name;
     protected ITypeSymbol type;
     protected IScope definitionScope;
-    protected ITSPHPAst definitionAst;
+    protected final ITSPHPAst definitionAst;
 
     protected ASymbol(ITSPHPAst theDefinitionAst, String theName) {
         name = theName;

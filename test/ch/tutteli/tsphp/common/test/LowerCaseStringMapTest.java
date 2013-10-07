@@ -17,10 +17,10 @@ import static org.junit.Assert.assertTrue;
 public class LowerCaseStringMapTest
 {
 
-    private String key1;
-    private String value1;
-    private String key2;
-    private String value2;
+    private final String key1;
+    private final String value1;
+    private final String key2;
+    private final String value2;
 
     public LowerCaseStringMapTest(String k1, String v1, String k2, String v2) {
         key1 = k1;

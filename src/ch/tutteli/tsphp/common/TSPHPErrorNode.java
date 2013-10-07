@@ -9,12 +9,12 @@ import org.antlr.runtime.tree.CommonErrorNode;
  *
  * @author Robert Stoll <rstoll@tutteli.ch>
  *
- * Adopted from the book Language Implementation Patterns by Terence Parr
+ * Adopted from the book "Language Implementation Patterns" by Terence Parr
  */
 public class TSPHPErrorNode extends TSPHPAst
 {
 
-    CommonErrorNode errorNode;
+    private final CommonErrorNode errorNode;
 
     public TSPHPErrorNode(TokenStream input, Token start, Token stop, RecognitionException exception) {
         super(start);
