@@ -8,7 +8,7 @@ import org.antlr.runtime.tree.TreeAdaptor;
 public interface ITSPHPAstAdaptor extends TreeAdaptor
 {
 
-    ITSPHPAst create(ITSPHPAst ast);
+    ITSPHPAst clone(ITSPHPAst ast);
 
     @Override
     ITSPHPAst create(Token token);

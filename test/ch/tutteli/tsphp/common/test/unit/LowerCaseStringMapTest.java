@@ -1,4 +1,4 @@
-package ch.tutteli.tsphp.common.test;
+package ch.tutteli.tsphp.common.test.unit;
 
 import ch.tutteli.tsphp.common.ILowerCaseStringMap;
 import ch.tutteli.tsphp.common.LowerCaseStringMap;

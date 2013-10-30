@@ -1,7 +1,9 @@
 package ch.tutteli.tsphp.common;
 
 import org.antlr.runtime.CommonToken;
-import org.antlr.runtime.tree.RewriteRuleSubtreeStream;
+import org.antlr.runtime.tree.Tree;
+
+import java.util.List;
 
 public class AstHelper implements IAstHelper
 {
@@ -14,7 +16,7 @@ public class AstHelper implements IAstHelper
 
     @Override
     public ITSPHPAst createAst(ITSPHPAst ast) {
-        return astAdaptor.create(ast);
+        return astAdaptor.clone(ast);
     }
 
     @Override
@@ -30,11 +32,12 @@ public class AstHelper implements IAstHelper
         ITSPHPAst copy = null;
         //original can be null if backtrack is active
         if (original != null) {
-            copy = astAdaptor.create(original); // Leverage constructor
+            copy = astAdaptor.clone(original); // Leverage constructor
 
-            if (original.getChildren() != null) {
-                for (Object child : original.getChildren()) {
-                    ITSPHPAst childCopy = copyAst((ITSPHPAst) child);
+            List<ITSPHPAst> children = original.getChildren();
+            if (children != null) {
+                for (ITSPHPAst child : children) {
+                    ITSPHPAst childCopy = copyAst(child);
                     childCopy.setParent(copy);
                     copy.addChild(childCopy);
                 }
@@ -44,23 +47,17 @@ public class AstHelper implements IAstHelper
     }
 
     @Override
-    public void addChildrenFromTo(ITSPHPAst source, ITSPHPAst target) {
-        if (source != null) {
-            RewriteRuleSubtreeStream stream = new RewriteRuleSubtreeStream(astAdaptor, "classMemberModifiers", source);
-            while (stream.hasNext()) {
-                astAdaptor.addChild(target, stream.nextTree());
-            }
-        }
+    public void addAstToTargetChildren(ITSPHPAst ast, ITSPHPAst target) {
+        astAdaptor.addChild(target, ast);
     }
 
     /**
      * Prepend ast to target, makes ast the parent of target.
      */
     @Override
-    public void prependAst(ITSPHPAst ast, ITSPHPAst target) {
-        ITSPHPAst parent = (ITSPHPAst) target.getParent();
+    public void prependAstToTarget(ITSPHPAst ast, ITSPHPAst target) {
+        Tree parent = target.getParent();
         int childIndex = target.getChildIndex();
-        ast.setParent(parent);
         ast.addChild(target);
         parent.replaceChildren(childIndex, childIndex, ast);
     }

@@ -9,7 +9,7 @@ public interface IAstHelper
 
     ITSPHPAst copyAst(ITSPHPAst original);
 
-    void addChildrenFromTo(ITSPHPAst source, ITSPHPAst target);
+    void addAstToTargetChildren(ITSPHPAst source, ITSPHPAst target);
 
-    void prependAst(ITSPHPAst ast, ITSPHPAst target);
+    void prependAstToTarget(ITSPHPAst ast, ITSPHPAst target);
 }

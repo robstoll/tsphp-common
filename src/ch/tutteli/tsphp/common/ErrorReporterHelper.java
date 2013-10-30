@@ -1,6 +1,6 @@
 package ch.tutteli.tsphp.common;
 
-import ch.tutteli.tsphp.common.exceptions.TSPHPException;
+import ch.tutteli.tsphp.common.exceptions.UnexpectedTokenException;
 import org.antlr.runtime.RecognitionException;
 
 import java.util.Collection;
@@ -15,12 +15,14 @@ public final class ErrorReporterHelper
             final RecognitionException exception,
             final String phase) {
 
-        final String tokenText = exception.token != null
-                ? "Unexpected token: " + exception.token.getText()
-                : "Unknown token";
-        for (IErrorLogger logger : errorLoggers) {
-            logger.log(new TSPHPException("Line " + exception.line + "|" + exception.charPositionInLine
-                    + " exception during " + phase + " phase occurred. " + tokenText, exception));
+        if (errorLoggers != null) {
+            final String tokenText = exception.token != null
+                    ? "Unexpected token: " + exception.token.getText()
+                    : "Unknown token";
+            for (IErrorLogger logger : errorLoggers) {
+                logger.log(new UnexpectedTokenException("Line " + exception.line + "|" + exception.charPositionInLine
+                        + " exception during " + phase + " phase occurred. " + tokenText, exception, phase));
+            }
         }
     }
 }

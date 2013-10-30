@@ -14,7 +14,7 @@ public class TSPHPAstAdaptor extends CommonTreeAdaptor implements ITSPHPAstAdapt
 {
 
     @Override
-    public ITSPHPAst create(ITSPHPAst ast) {
+    public ITSPHPAst clone(ITSPHPAst ast) {
         return new TSPHPAst(ast);
     }
 
