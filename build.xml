@@ -1,6 +1,6 @@
-<project name="TSPHP-common" default="build" basedir=".">
+<project name="common" default="build" basedir=".">
 
     <property environment="env" />
-    <import file="${basedir}/build-common.xml" as="common"/>
+    <import file="${basedir}/ant/build-common.xml" as="common"/>
 
 </project>
