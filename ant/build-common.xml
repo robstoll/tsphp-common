@@ -225,7 +225,7 @@
         <mkdir dir="${junit}"/>
         <mkdir dir="${coverage}"/>
         <touch file="${coverage.data}"/>
-        <jacoco:agent property="test.vm.param" destfile="${coverage.data}"/>
+        <jacoco:agent property="test.vm.param" destfile="${coverage.data}" excludes="${coverage.excludes.agent}"/>
         <junit printsummary="off"
                haltonfailure="false"
                fork="true"
@@ -257,7 +257,7 @@
         <mkdir dir="${junit.unit}"/>
         <mkdir dir="${coverage.unit}"/>
         <touch file="${coverage.unit.data}"/>
-        <jacoco:agent property="test.vm.param" destfile="${coverage.unit.data}"/>
+        <jacoco:agent property="test.vm.param" destfile="${coverage.unit.data}" excludes="${coverage.excludes.agent}"/>
         <junit printsummary="off"
                haltonfailure="false"
                fork="true"
