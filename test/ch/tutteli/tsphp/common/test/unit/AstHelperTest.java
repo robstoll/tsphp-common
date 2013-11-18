@@ -189,7 +189,7 @@ public class AstHelperTest
     }
 
     @Test
-    //astAdaptor will will check for null
+    //astAdaptor will check for null
     public void addAstToTargetChildren_SourceIsNull_DelegateToAdaptor() {
         ITSPHPAst target = mock(ITSPHPAst.class);
 

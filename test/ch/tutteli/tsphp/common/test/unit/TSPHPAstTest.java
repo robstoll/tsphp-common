@@ -1,10 +1,8 @@
 package ch.tutteli.tsphp.common.test.unit;
 
-import ch.tutteli.tsphp.common.IScope;
-import ch.tutteli.tsphp.common.ISymbol;
 import ch.tutteli.tsphp.common.ITSPHPAst;
-import ch.tutteli.tsphp.common.ITypeSymbol;
 import ch.tutteli.tsphp.common.TSPHPAst;
+import ch.tutteli.tsphp.common.test.unit.testutils.CloneAstHelper;
 import org.antlr.runtime.CommonToken;
 import org.antlr.runtime.Token;
 import org.junit.Test;
@@ -13,6 +11,7 @@ import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
+import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
@@ -23,7 +22,7 @@ public class TSPHPAstTest
 {
 
     @Test
-    public void isDefinedEarlierThan_SameAst_ReturnFalse(){
+    public void isDefinedEarlierThan_SameAst_ReturnFalse() {
         ITSPHPAst ast = new TSPHPAst();
 
         boolean result = ast.isDefinedEarlierThan(ast);
@@ -33,7 +32,7 @@ public class TSPHPAstTest
 
     //This use case should never occur, but if it should return false
     @Test
-    public void isDefinedEarlierThan_SameStartIndex_ReturnFalse(){
+    public void isDefinedEarlierThan_SameStartIndex_ReturnFalse() {
         ITSPHPAst ast = new TSPHPAst();
         ast.setTokenStartIndex(1);
         ITSPHPAst ast2 = new TSPHPAst();
@@ -45,7 +44,7 @@ public class TSPHPAstTest
     }
 
     @Test
-    public void isDefinedEarlierThan_Earlier_ReturnTrue(){
+    public void isDefinedEarlierThan_Earlier_ReturnTrue() {
         ITSPHPAst ast = new TSPHPAst();
         ast.setTokenStartIndex(1);
         ITSPHPAst astLater = new TSPHPAst();
@@ -58,7 +57,7 @@ public class TSPHPAstTest
 
 
     @Test
-    public void isDefinedEarlierThan_Later_ReturnFalse(){
+    public void isDefinedEarlierThan_Later_ReturnFalse() {
         ITSPHPAst ast = new TSPHPAst();
         ast.setTokenStartIndex(2);
         ITSPHPAst astLater = new TSPHPAst();
@@ -70,48 +69,26 @@ public class TSPHPAstTest
     }
 
     @Test
-    public void copyConstructor_copyAst_TokenEtcIsCopied(){
-        //cannot test all methods but the most important one
-        Token token = new CommonToken(0, "test");
-        final int line = 123;
-        token.setLine(line);
-        final int posInLine = 456;
-        token.setCharPositionInLine(posInLine);
-        ITSPHPAst ast = new TSPHPAst(token);
-        final int tokenStartIndex = 20;
-        ast.setTokenStartIndex(tokenStartIndex);
-
-        //especially the one which are not copied by ANTLR by default
-        IScope scope = mock(IScope.class);
-        ast.setScope(scope);
-        ISymbol symbol = mock(ISymbol.class);
-        ast.setSymbol(symbol);
-        ITypeSymbol evalType = mock(ITypeSymbol.class);
-        ast.setEvalType(evalType);
+    public void copyConstructor_copyAst_TokenEtcIsCopied() {
+        ITSPHPAst ast = CloneAstHelper.getAssertedAst();
 
         ITSPHPAst clone = new TSPHPAst(ast);
 
-        assertThat(clone.getToken().getLine(), is(line));
-        assertThat(clone.getToken().getCharPositionInLine(), is(posInLine));
-        assertThat(clone.getTokenStartIndex(), is(tokenStartIndex));
+        CloneAstHelper.assertIsClonedAst(clone, ast);
+    }
 
-        assertThat(clone.getScope(), is(scope));
-        assertThat(clone.getSymbol(), is(symbol));
-        assertThat(clone.getEvalType(), is(evalType));
+    @Test
+    public void tokenConstructor_Standard_IsSameToken(){
+        Token token = mock(Token.class);
 
-        //Verify that nothing was moved (values on the cloned instance wasn't deleted)
-        assertThat(ast.getToken().getLine(), is(line));
-        assertThat(ast.getToken().getCharPositionInLine(), is(posInLine));
-        assertThat(ast.getTokenStartIndex(), is(tokenStartIndex));
+        ITSPHPAst clone = new TSPHPAst(token);
 
-        assertThat(ast.getEvalType(), is(evalType));
-        assertThat(ast.getScope(), is(scope));
-        assertThat(ast.getSymbol(), is(symbol));
+        assertThat(clone.getToken(), is(token));
     }
 
     @Test
     public void setText_Standard_TokenTextIsSet() {
-        CommonToken token = new CommonToken(1,"token");
+        CommonToken token = new CommonToken(1, "token");
         String newText = "newTokenText";
 
         ITSPHPAst ast = new TSPHPAst(token);
@@ -122,7 +99,7 @@ public class TSPHPAstTest
     }
 
     @Test
-    public void getChildren_HasNone_ReturnNull(){
+    public void getChildren_HasNone_ReturnNull() {
         ITSPHPAst ast = new TSPHPAst();
 
         List<ITSPHPAst> children = ast.getChildren();
@@ -131,8 +108,8 @@ public class TSPHPAstTest
     }
 
     @Test
-    public void getChildren_HasOne_ReturnListWithOne(){
-        ITSPHPAst child = new TSPHPAst(new CommonToken(1,"token"));
+    public void getChildren_HasOne_ReturnListWithOne() {
+        ITSPHPAst child = new TSPHPAst(new CommonToken(1, "token"));
         ITSPHPAst ast = new TSPHPAst();
         ast.addChild(child);
 
@@ -144,7 +121,7 @@ public class TSPHPAstTest
     }
 
     @Test
-    public void getChild_HasNone_ReturnNull(){
+    public void getChild_HasNone_ReturnNull() {
         ITSPHPAst ast = new TSPHPAst();
 
         ITSPHPAst result = ast.getChild(0);
@@ -153,8 +130,8 @@ public class TSPHPAstTest
     }
 
     @Test
-    public void getChild_HasOneIndex0_ReturnChild(){
-        ITSPHPAst child = new TSPHPAst(new CommonToken(1,"token"));
+    public void getChild_HasOneIndex0_ReturnChild() {
+        ITSPHPAst child = new TSPHPAst(new CommonToken(1, "token"));
         ITSPHPAst ast = new TSPHPAst();
         ast.addChild(child);
 
@@ -164,8 +141,8 @@ public class TSPHPAstTest
     }
 
     @Test
-    public void getChild_HasOneIndex1_ReturnNull(){
-        ITSPHPAst child = new TSPHPAst(new CommonToken(1,"token"));
+    public void getChild_HasOneIndex1_ReturnNull() {
+        ITSPHPAst child = new TSPHPAst(new CommonToken(1, "token"));
         ITSPHPAst ast = new TSPHPAst();
         ast.addChild(child);
 
