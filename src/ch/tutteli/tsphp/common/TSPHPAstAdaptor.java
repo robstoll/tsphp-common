@@ -24,6 +24,11 @@ public class TSPHPAstAdaptor extends CommonTreeAdaptor implements ITSPHPAstAdapt
     }
 
     @Override
+    public ITSPHPAst create(int tokenType, String text) {
+        return new TSPHPAst(super.createToken(tokenType, text));
+    }
+
+    @Override
     public ITSPHPAst dupNode(Object ast) {
         if (ast == null) {
             return null;

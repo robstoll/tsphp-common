@@ -27,13 +27,25 @@ public class TSPHPAstAdaptorTest
     }
 
     @Test
-    public void create_Standard_SameAsTokenConstructor() {
+    public void create_ViaToken_SameAsTokenConstructor() {
         Token token = mock(Token.class);
 
         ITSPHPAstAdaptor astAdaptor = createAstAdaptor();
         ITSPHPAst result = astAdaptor.create(token);
 
         assertThat(result.getToken(), is(token));
+    }
+
+    @Test
+    public void create_ViaTokenTypeAndString_CreatesTokenUsesTokenConstructor(){
+        int tokenType = 2;
+        String tokenText = "token";
+
+        ITSPHPAstAdaptor astAdaptor = createAstAdaptor();
+        ITSPHPAst result = astAdaptor.create(tokenType, tokenText);
+
+        assertThat(result.getToken().getType(), is(tokenType));
+        assertThat(result.getToken().getText(), is(tokenText));
     }
 
     @Test

@@ -14,6 +14,9 @@ public interface ITSPHPAstAdaptor extends TreeAdaptor
     ITSPHPAst create(Token token);
 
     @Override
+    ITSPHPAst create(int tokenType, String tokenText);
+
+    @Override
     ITSPHPAst dupNode(Object ast);
 
     @Override
