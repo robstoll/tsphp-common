@@ -38,6 +38,6 @@ public class TSPHPAstAdaptor extends CommonTreeAdaptor implements ITSPHPAstAdapt
 
     @Override
     public ITSPHPAst errorNode(TokenStream input, Token start, Token stop, RecognitionException exception) {
-        return new TSPHPErrorNode(input, start, stop, exception);
+        return new TSPHPErrorAst(input, start, stop, exception);
     }
 }
