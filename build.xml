@@ -1,4 +1,4 @@
-<project name="common" default="build" basedir=".">
+<project name="common" default="common.build" basedir=".">
 
     <property environment="env" />
     <import file="${basedir}/ant/build-common.xml" as="common"/>
