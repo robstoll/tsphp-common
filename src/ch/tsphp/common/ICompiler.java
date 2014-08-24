@@ -25,9 +25,9 @@ public interface ICompiler extends IErrorReporter, IErrorLogger
 
     void addCompilationUnit(String id, InputStream input, String encoding) throws IOException;
 
-    void addCompilationUnit(String id, InputStream input, int size, String encoding) throws IOException;
+    void addCompilationUnit(String id, InputStream input, int initialBufferSize, String encoding) throws IOException;
 
-    void addCompilationUnit(String id, InputStream input, int size, int readBufferSize, String encoding)
+    void addCompilationUnit(String id, InputStream input, int initialBufferSize, int readBufferSize, String encoding)
             throws IOException;
 
     /**

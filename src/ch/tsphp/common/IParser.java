@@ -17,7 +17,7 @@ public interface IParser extends IErrorReporter
      *
      * @return An abstract syntax ITSPHPAst (AST)
      * @see <a href="http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html">
-     *     http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html</a>
+     * http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html</a>
      */
     ParserUnitDto parse(String inputString);
 
@@ -26,7 +26,7 @@ public interface IParser extends IErrorReporter
      *
      * @return An abstract syntax ITSPHPAst (AST)
      * @see <a href="http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html">
-     *     http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html</a>
+     * http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRStringStream.html</a>
      */
     ParserUnitDto parse(char[] data, int numberOfActualCharsInArray);
 
@@ -35,7 +35,7 @@ public interface IParser extends IErrorReporter
      *
      * @return An abstract syntax ITSPHPAst (AST)
      * @see <a href="http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html">
-     *     http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html</a>
+     * http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html</a>
      */
     ParserUnitDto parseInputStream(InputStream input) throws IOException;
 
@@ -44,16 +44,16 @@ public interface IParser extends IErrorReporter
      *
      * @return An abstract syntax ITSPHPAst (AST)
      * @see <a href="http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html">
-     *     http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html</a>
+     * http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html</a>
      */
-    ParserUnitDto parseInputStream(InputStream input, int size) throws IOException;
+    ParserUnitDto parseInputStream(InputStream input, int initialBufferSize) throws IOException;
 
     /**
      * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
      *
      * @return An abstract syntax ITSPHPAst (AST)
      * @see <a href="http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html">
-     *     http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html</a>
+     * http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html</a>
      */
     ParserUnitDto parseInputStream(InputStream input, String encoding) throws IOException;
 
@@ -62,25 +62,26 @@ public interface IParser extends IErrorReporter
      *
      * @return An abstract syntax ITSPHPAst (AST)
      * @see <a href="http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html">
-     *     http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html</a>
+     * http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html</a>
      */
-    ParserUnitDto parseInputStream(InputStream input, int size, String encoding) throws IOException;
+    ParserUnitDto parseInputStream(InputStream input, int initialBufferSize, String encoding) throws IOException;
 
     /**
      * Parse the inputStream and return the corresponding abstract syntax ITSPHPAst (AST).
      *
      * @return An abstract syntax ITSPHPAst (AST)
      * @see <a href="http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html">
-     *     http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html</a>
+     * http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRInputStream.html</a>
      */
-    ParserUnitDto parseInputStream(InputStream input, int size, int readBufferSize, String encoding) throws IOException;
+    ParserUnitDto parseInputStream(InputStream input, int initialBufferSize, int readBufferSize, String encoding)
+            throws IOException;
 
     /**
      * Parse the file and return the corresponding abstract syntax ITSPHPAst (AST).
      *
      * @return An abstract syntax ITSPHPAst (AST)
      * @see <a href="http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html">
-     *     http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html</a>
+     * http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html</a>
      */
     ParserUnitDto parseFile(String filename) throws IOException;
 
@@ -89,7 +90,7 @@ public interface IParser extends IErrorReporter
      *
      * @return An abstract syntax ITSPHPAst (AST)
      * @see <a href="http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html">
-     *     http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html</a>
+     * http://www.antlr3.org/api/Java/org/antlr/runtime/ANTLRFileStream.html</a>
      */
     ParserUnitDto parseFile(String fileName, String encoding) throws IOException;
 
