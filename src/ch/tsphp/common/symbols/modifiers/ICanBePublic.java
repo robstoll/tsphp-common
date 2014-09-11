@@ -4,20 +4,11 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TSPHP/License
  */
 
-package ch.tsphp.common;
+package ch.tsphp.common.symbols.modifiers;
 
-public interface ISymbol
+public interface ICanBePublic
 {
 
-    ITSPHPAst getDefinitionAst();
+    boolean isPublic();
 
-    String getName();
-
-    IScope getDefinitionScope();
-
-    void setDefinitionScope(IScope definitionScope);
-
-    ITypeSymbol getType();
-
-    void setType(ITypeSymbol newType);
 }

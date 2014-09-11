@@ -6,9 +6,12 @@
 
 package ch.tsphp.common;
 
-import java.util.List;
+import ch.tsphp.common.symbols.ISymbol;
+import ch.tsphp.common.symbols.ITypeSymbol;
 import org.antlr.runtime.Token;
 import org.antlr.runtime.tree.Tree;
+
+import java.util.List;
 
 public interface ITSPHPAst extends Tree
 {
@@ -21,10 +24,10 @@ public interface ITSPHPAst extends Tree
 
     void setScope(IScope newScope);
 
-     ITypeSymbol getEvalType();
+    ITypeSymbol getEvalType();
 
     void setEvalType(ITypeSymbol newEvalType);
-    
+
     boolean isDefinedEarlierThan(ITSPHPAst ast);
 
     void setText(String text);

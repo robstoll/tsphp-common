@@ -7,10 +7,10 @@
 package ch.tsphp.common.test.unit.testutils;
 
 import ch.tsphp.common.IScope;
-import ch.tsphp.common.ISymbol;
 import ch.tsphp.common.ITSPHPAst;
-import ch.tsphp.common.ITypeSymbol;
 import ch.tsphp.common.TSPHPAst;
+import ch.tsphp.common.symbols.ISymbol;
+import ch.tsphp.common.symbols.ITypeSymbol;
 import org.antlr.runtime.CommonToken;
 import org.antlr.runtime.Token;
 
@@ -50,7 +50,7 @@ public class CloneAstHelper
         return token;
     }
 
-    public static void assertIsClonedAst(ITSPHPAst clone, ITSPHPAst ast){
+    public static void assertIsClonedAst(ITSPHPAst clone, ITSPHPAst ast) {
         assertThat(clone, not(ast));
         //verify values are set on the clone
         assertThat(clone.getScope(), is(scope));

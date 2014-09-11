@@ -4,19 +4,15 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TSPHP/License
  */
 
-package ch.tsphp.common;
+package ch.tsphp.common.symbols.modifiers;
 
-import java.util.Set;
-
-public interface ITypeSymbol extends ISymbol
+/*
+ * Represents a symbol which could be able hold the value false.
+ */
+public interface ICanBeFalseable
 {
-
-    Set<ITypeSymbol> getParentTypeSymbols();
-
-    boolean isNullable();
-    
     /**
-     * Return the default value as ITSPHPAst, as an expression respectively.
+     * Indicates whether the type can additionally contain false next to the regular values of this type.
      */
-    ITSPHPAst getDefaultValue();
+    boolean isFalseable();
 }

@@ -6,11 +6,11 @@
 
 package ch.tsphp.common.test.unit;
 
-import ch.tsphp.common.ASymbol;
 import ch.tsphp.common.IScope;
-import ch.tsphp.common.ISymbol;
 import ch.tsphp.common.ITSPHPAst;
-import ch.tsphp.common.ITypeSymbol;
+import ch.tsphp.common.symbols.ASymbol;
+import ch.tsphp.common.symbols.ISymbol;
+import ch.tsphp.common.symbols.ITypeSymbol;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -29,7 +29,7 @@ public class ASymbolTest
     }
 
     @Test
-    public void getDefinitionAst_Standard_ReturnAst(){
+    public void getDefinitionAst_Standard_ReturnAst() {
         ITSPHPAst ast = mock(ITSPHPAst.class);
 
         ISymbol symbol = createSymbol(ast, "name");
@@ -39,7 +39,7 @@ public class ASymbolTest
     }
 
     @Test
-    public void getName_Standard_ReturnName(){
+    public void getName_Standard_ReturnName() {
         ITSPHPAst ast = mock(ITSPHPAst.class);
 
         ISymbol symbol = createSymbol(ast, "name");
@@ -49,7 +49,7 @@ public class ASymbolTest
     }
 
     @Test
-    public void getDefinitionScope_NothingDefined_ReturnNull(){
+    public void getDefinitionScope_NothingDefined_ReturnNull() {
         //no arrange needed
 
         ISymbol symbol = createSymbol(mock(ITSPHPAst.class), "name");
@@ -59,7 +59,7 @@ public class ASymbolTest
     }
 
     @Test
-    public void setAndGetDefinitionScope_Standard_ReturnSetScope(){
+    public void setAndGetDefinitionScope_Standard_ReturnSetScope() {
         IScope scope = mock(IScope.class);
 
         ISymbol symbol = createSymbol(mock(ITSPHPAst.class), "name");
@@ -70,7 +70,7 @@ public class ASymbolTest
     }
 
     @Test
-    public void set2AndGetDefinitionScope_Standard_ReturnSecondSetScope(){
+    public void set2AndGetDefinitionScope_Standard_ReturnSecondSetScope() {
         IScope scope = mock(IScope.class);
         IScope scope2 = mock(IScope.class);
 
@@ -83,7 +83,7 @@ public class ASymbolTest
     }
 
     @Test
-    public void getType_NothingDefined_ReturnNull(){
+    public void getType_NothingDefined_ReturnNull() {
         //no arrange needed
 
         ISymbol symbol = createSymbol(mock(ITSPHPAst.class), "name");
@@ -93,7 +93,7 @@ public class ASymbolTest
     }
 
     @Test
-    public void setAndGetType_NothingDefined_ReturnSetType(){
+    public void setAndGetType_NothingDefined_ReturnSetType() {
         ITypeSymbol typeSymbol = mock(ITypeSymbol.class);
 
         ISymbol symbol = createSymbol(mock(ITSPHPAst.class), "name");
@@ -104,7 +104,7 @@ public class ASymbolTest
     }
 
     @Test
-    public void set2AndGetType_NothingDefined_ReturnSecondSetType(){
+    public void set2AndGetType_NothingDefined_ReturnSecondSetType() {
         ITypeSymbol typeSymbol = mock(ITypeSymbol.class);
         ITypeSymbol typeSymbol2 = mock(ITypeSymbol.class);
 
@@ -117,7 +117,7 @@ public class ASymbolTest
     }
 
     @Test
-    public void toString_TypeNotSet_ReturnName(){
+    public void toString_TypeNotSet_ReturnName() {
         //no arrange needed
 
         ISymbol symbol = createSymbol(mock(ITSPHPAst.class), "name");
@@ -127,7 +127,7 @@ public class ASymbolTest
     }
 
     @Test
-    public void toString_TypeSet_ReturnNameAndType(){
+    public void toString_TypeSet_ReturnNameAndType() {
         ITypeSymbol type = mock(ITypeSymbol.class);
         when(type.toString()).thenReturn("type");
 
@@ -139,6 +139,6 @@ public class ASymbolTest
     }
 
     private ISymbol createSymbol(ITSPHPAst ast, String name) {
-        return new DummySymbol(ast,name);
+        return new DummySymbol(ast, name);
     }
 }

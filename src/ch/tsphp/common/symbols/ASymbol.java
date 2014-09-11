@@ -4,7 +4,10 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TSPHP/License
  */
 
-package ch.tsphp.common;
+package ch.tsphp.common.symbols;
+
+import ch.tsphp.common.IScope;
+import ch.tsphp.common.ITSPHPAst;
 
 /**
  * Adopted from the book "Language Implementation Patterns" by Terence Parr

@@ -6,6 +6,8 @@
 
 package ch.tsphp.common;
 
+import ch.tsphp.common.symbols.ISymbol;
+
 import java.util.List;
 import java.util.Map;
 
