@@ -339,9 +339,14 @@
     <!-- ================================================================== -->
     <!-- Target: checkstyle -->
     <!-- ================================================================== -->
+	<condition property="checkStyleExcludesIsSet">
+	  <not>
+		<equals arg1="${checkstyle.excludes}" arg2=""/>
+	  </not>
+	</condition>
     <fileset id="checkStyleFileSet" dir="${basedir}">
         <include name="${src.name}/**/*.java"/>
-        <exclude name="${src.name}/${checkstyle.excludes}"/>
+         <exclude name="${src.name}/${checkstyle.excludes}" if="checkStyleExcludesIsSet"/>
         <include name="/antlr/*.g"/>
     </fileset>
 
