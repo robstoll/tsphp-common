@@ -21,8 +21,8 @@
     <!-- setting source location -->
     <property name="lib" location="${basedir}/lib"/>
     <property name="libdev" location="${lib}/dev"/>
-    <property name="src.name" value="/src"/>
-    <property name="src" location="${basedir}${src.name}"/>
+    <property name="src.name" value="src"/>
+    <property name="src" location="${basedir}/${src.name}"/>
     <property name="src.main" location="${src}"/>
     <property name="src.test" location="${basedir}/test"/>
 
@@ -346,8 +346,8 @@
 	</condition>
     <fileset id="checkStyleFileSet" dir="${basedir}">
         <include name="${src.name}/**/*.java"/>
-         <exclude name="${src.name}/${checkstyle.excludes}" if="checkStyleExcludesIsSet"/>
-        <include name="/antlr/*.g"/>
+        <exclude name="${src.name}/${checkstyle.excludes}" if="checkStyleExcludesIsSet"/>
+        <include name="antlr/*.g"/>
     </fileset>
 
     <target name="checkstyle" depends="init" description="checkstyle report">
