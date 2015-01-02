@@ -8,6 +8,9 @@ package ch.tsphp.common;
 
 import org.antlr.runtime.tree.TreeNodeStream;
 
+/**
+ * Represents the type checker of TSPHP.
+ */
 public interface ITypeChecker extends IErrorReporter
 {
 
@@ -20,7 +23,7 @@ public interface ITypeChecker extends IErrorReporter
     /**
      * Reset the type checker.
      * 
-     * It will forget about previous definitions etc. next to drop previous exceptions
+     * It will forget about previous definitions etc. and will drop previous exceptions
      */
     @Override
     void reset();

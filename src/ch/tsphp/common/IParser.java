@@ -9,6 +9,9 @@ package ch.tsphp.common;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Represents the parser of TSPHP.
+ */
 public interface IParser extends IErrorReporter
 {
 
