@@ -18,7 +18,14 @@ public interface ITypeSymbol extends ISymbolWithModifier, ICanBeFalseable, ICanB
     Set<ITypeSymbol> getParentTypeSymbols();
 
     /**
-     * Return the default value as ITSPHPAst, as an expression respectively.
+     * Returns the default value as ITSPHPAst, as an expression respectively.
      */
     ITSPHPAst getDefaultValue();
+
+    /**
+     * Returns itself or null if the type is lazy and not yet ready.
+     *
+     * @return
+     */
+    ITypeSymbol evalSelf();
 }

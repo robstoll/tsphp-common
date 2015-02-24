@@ -7,6 +7,7 @@
 package ch.tsphp.common;
 
 import ch.tsphp.common.symbols.ISymbol;
+import ch.tsphp.common.symbols.IUnionTypeSymbol;
 
 import java.util.List;
 import java.util.Map;
@@ -78,4 +79,14 @@ public interface IScope
      * false
      */
     boolean isPartiallyInitialised(ISymbol symbol);
+
+    Map<String, List<IConstraint>> getConstraints();
+
+    List<IConstraint> getConstraintsForVariable(String variableId);
+
+    void addConstraint(String variableId, IConstraint constraint);
+
+    IUnionTypeSymbol getResultOfConstraintSolving(String variableId);
+
+    void setResultOfConstraintSolving(String variableId, IUnionTypeSymbol typeSymbol);
 }
