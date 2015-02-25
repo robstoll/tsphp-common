@@ -18,9 +18,21 @@ public interface IUnionTypeSymbol extends ILazyTypeSymbol
 {
     Map<String, ITypeSymbol> getTypeSymbols();
 
-    void addTypeSymbol(ITypeSymbol symbol);
+    /**
+     * Adds the given type to this union and indicates whether this union has changed.
+     * <p/>
+     * A type might not be added if it already exists in the union or if a parent type of the given type already
+     * exists in the union. In this case the method returns false because it represents the same type as before.
+     */
+    boolean addTypeSymbol(ITypeSymbol symbol);
 
-    void merge(IUnionTypeSymbol unionTypeSymbol);
+    /**
+     * Adds all types of the given union to this union and indicates whether this union has changed.
+     * <p/>
+     * A type might not be added if it already exists in the union or if a parent type of the given type already
+     * exists in the union.
+     */
+    boolean merge(IUnionTypeSymbol unionTypeSymbol);
 
     /**
      * Closes the union type, no further type can be added to it
