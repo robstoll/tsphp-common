@@ -28,4 +28,12 @@ public interface ITypeSymbol extends ISymbolWithModifier, ICanBeFalseable, ICanB
      * @return
      */
     ITypeSymbol evalSelf();
+
+    /**
+     * Indicates whether this type can be used in an intersection type among other types which are not in the same
+     * type hierarchy.
+     * <p/>
+     * Currently, only interfaces have this property. Types like num & bool do not make sense.
+     */
+    boolean canBeUsedInIntersection();
 }
